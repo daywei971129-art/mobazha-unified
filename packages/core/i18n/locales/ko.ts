@@ -2055,6 +2055,9 @@ export const ko: PartialTranslationResource = {
     },
   },
   wallet: {
+    accountAndNetworks: '계정 및 네트워크',
+    switchWallet: '다른 지갑 연결',
+    addressCopied: '주소를 복사했습니다',
     title: '지갑',
     balance: '잔액',
     totalBalance: '총 잔액',
