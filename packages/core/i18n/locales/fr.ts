@@ -2122,6 +2122,9 @@ export const fr: PartialTranslationResource = {
     },
   },
   wallet: {
+    accountAndNetworks: 'Compte et réseaux',
+    switchWallet: 'Connecter un autre portefeuille',
+    addressCopied: 'Adresse copiée',
     title: 'Portefeuille',
     balance: 'Solde',
     totalBalance: 'Solde Total',
