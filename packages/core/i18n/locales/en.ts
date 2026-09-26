@@ -2195,6 +2195,9 @@ export const en: TranslationResource = {
   },
 
   wallet: {
+    accountAndNetworks: 'Account & networks',
+    switchWallet: 'Connect a different wallet',
+    addressCopied: 'Address copied',
     title: 'Wallet',
     balance: 'Balance',
     totalBalance: 'Total Balance',
