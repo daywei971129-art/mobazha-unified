@@ -2082,6 +2082,9 @@ export const ja: PartialTranslationResource = {
     },
   },
   wallet: {
+    accountAndNetworks: 'アカウントとネットワーク',
+    switchWallet: '別のウォレットを接続',
+    addressCopied: 'アドレスをコピーしました',
     title: 'ウォレット',
     balance: '残高',
     totalBalance: '総残高',
