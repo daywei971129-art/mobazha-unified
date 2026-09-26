@@ -2109,6 +2109,9 @@ export const pt: PartialTranslationResource = {
     },
   },
   wallet: {
+    accountAndNetworks: 'Conta e redes',
+    switchWallet: 'Conectar outra carteira',
+    addressCopied: 'Endereço copiado',
     title: 'Carteira',
     balance: 'Saldo',
     totalBalance: 'Saldo Total',
