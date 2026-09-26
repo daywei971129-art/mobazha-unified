@@ -2143,6 +2143,9 @@ export const de: PartialTranslationResource = {
     },
   },
   wallet: {
+    accountAndNetworks: 'Konto & Netzwerke',
+    switchWallet: 'Andere Wallet verbinden',
+    addressCopied: 'Adresse kopiert',
     title: 'Wallet',
     balance: 'Guthaben',
     totalBalance: 'Gesamtguthaben',
