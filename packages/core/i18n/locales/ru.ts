@@ -2091,6 +2091,9 @@ export const ru: PartialTranslationResource = {
     },
   },
   wallet: {
+    accountAndNetworks: 'Аккаунт и сети',
+    switchWallet: 'Подключить другой кошелёк',
+    addressCopied: 'Адрес скопирован',
     title: 'Кошелёк',
     balance: 'Баланс',
     totalBalance: 'Общий баланс',
