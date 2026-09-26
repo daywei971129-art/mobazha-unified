@@ -1988,6 +1988,9 @@ export const zh: PartialTranslationResource = {
     },
   },
   wallet: {
+    accountAndNetworks: '账户与网络',
+    switchWallet: '更换钱包',
+    addressCopied: '地址已复制',
     title: '钱包',
     balance: '余额',
     totalBalance: '总余额',
