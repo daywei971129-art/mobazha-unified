@@ -83,8 +83,19 @@ export async function resolveSsrListingVendorPeer(slug: string): Promise<string 
   }
 }
 
-/** Paginated public search catalog for hosted-mode sitemap generation. */
-export async function fetchSearchListingCatalog(): Promise<SitemapListingItem[]> {
+export interface FetchSearchListingCatalogOptions {
+  /**
+   * Override the info-API origin. The sitemap uses this to try alternate entry
+   * points when the build-time env var is not configured for a deployment.
+   */
+  base?: string;
+}
+
+/** Paginated public search catalog for sitemap generation. */
+export async function fetchSearchListingCatalog(
+  options: FetchSearchListingCatalogOptions = {}
+): Promise<SitemapListingItem[]> {
+  const base = (options.base || SSR_SEARCH_BASE).replace(/\/+$/, '');
   const listings: SitemapListingItem[] = [];
   const seen = new Set<string>();
   const pageSize = 100;
@@ -100,7 +111,7 @@ export async function fetchSearchListingCatalog(): Promise<SitemapListingItem[]>
     });
 
     try {
-      const res = await fetch(`${SSR_SEARCH_BASE}${SEARCH_API.SEARCH_LISTINGS}?${params}`, {
+      const res = await fetch(`${base}${SEARCH_API.SEARCH_LISTINGS}?${params}`, {
         next: { revalidate: 3600 },
       });
       if (!res.ok) break;
