@@ -2,6 +2,26 @@ import type { MetadataRoute } from 'next';
 
 import { getCanonicalSiteUrl, getSiteUrl, isNamedStorefrontRequest } from '@/lib/siteUrl';
 
+/** Paths that must never be crawled, regardless of the user agent. */
+const PRIVATE_PATHS = ['/checkout/', '/payment/', '/orders/', '/settings/', '/api/'];
+
+/**
+ * Generative-engine crawlers we explicitly admit. The generic `*` rule already
+ * allows them, but naming them keeps the intent reviewable and lets a store
+ * operator see exactly who is admitted without reading the whole file.
+ */
+const AI_CRAWLERS = [
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'Claude-User',
+  'PerplexityBot',
+  'Google-Extended',
+  'CCBot',
+  'Applebot-Extended',
+];
+
 /**
  * MS-Phase-2a · MS2a.3 — SEO de-duplication.
  *
@@ -34,8 +54,13 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/checkout/', '/payment/', '/orders/', '/settings/', '/api/'],
+        disallow: PRIVATE_PATHS,
       },
+      ...AI_CRAWLERS.map(userAgent => ({
+        userAgent,
+        allow: '/',
+        disallow: PRIVATE_PATHS,
+      })),
     ],
     sitemap: `${currentSiteUrl}/sitemap.xml`,
   };
