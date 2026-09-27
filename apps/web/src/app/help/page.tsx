@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { buildGuideIndexJsonLd, guidePath, SEO_GUIDES } from '@/content/seoGuides';
+import { SEO_GUIDES_ZH, zhGuidePath } from '@/content/seoGuidesZh';
 import { getCanonicalSiteUrl } from '@/lib/siteUrl';
 
 const DESCRIPTION =
@@ -65,6 +66,27 @@ export default async function HelpIndexPage() {
           </p>
         </li>
       </ul>
+
+      {/* 中文指南放在 /zh/help 下，语言由 URL 前缀表达；这里给出站内入口，让爬虫
+          和读者都能从一个链接找到它。 */}
+      <section lang="zh-Hans" className="mt-10">
+        <h2 className="text-lg font-semibold text-foreground mb-3">中文指南</h2>
+        <ul className="list-none p-0 space-y-3">
+          {SEO_GUIDES_ZH.map(guide => (
+            <li key={guide.slug} className="rounded-lg border border-border p-4">
+              <Link
+                href={zhGuidePath(guide.slug)}
+                className="text-base font-semibold text-foreground hover:text-primary hover:underline"
+              >
+                {guide.title}
+              </Link>
+              <p className="text-sm text-muted-foreground leading-relaxed mt-1 mb-0">
+                {guide.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }
