@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
 
 import '@/lib/initPublicEnv';
-import { isHostedMode } from '@mobazha/core/config/env';
 import { buildProductHref, parseCompositeListingSlug } from '@mobazha/core/utils/productUrl';
 import { fetchSearchListingCatalog, type SitemapListingItem } from '@/lib/ssrSearchCatalog';
+import { SSR_SEARCH_BASE } from '@/lib/ssrSearchBase';
 import { getSiteUrl, isNamedStorefrontRequest } from '@/lib/siteUrl';
 import { SSR_API_BASE } from '@/lib/ssrApiBase';
 
@@ -42,15 +42,44 @@ function mapIndexListings(listings: ListingIndexItem[]): SitemapListingItem[] {
   });
 }
 
-async function fetchSitemapListings(): Promise<SitemapListingItem[]> {
-  if (isHostedMode()) {
-    const searchListings = await fetchSearchListingCatalog();
+async function fetchSitemapListings(siteUrl: string): Promise<SitemapListingItem[]> {
+  /**
+   * Two things used to keep this sitemap empty, leaving only the two static
+   * routes in production:
+   *
+   * 1. The search index was gated behind `isHostedMode()`, so stand-alone
+   *    stores fell straight through to the node listing index — which answers
+   *    `401` for an unauthenticated sitemap request.
+   * 2. The info API is reached through a different entry point than the API
+   *    base: `INTERNAL_INFO_API_URL` / `NEXT_PUBLIC_INFO_API_URL`, with a
+   *    hard-coded `info.mobazha.org` fallback. That host is a *different*
+   *    product and answers with an HTML shell, so on a deployment where the
+   *    build-time variable is missing the catalogue silently resolved to zero
+   *    listings. The same-origin `/info/*` prefix is what the browser already
+   *    uses (`src/proxy.ts`) and it is verified to return JSON, so it is tried
+   *    as a second entry point before giving up.
+   */
+  const searchBases = [SSR_SEARCH_BASE, `${siteUrl.replace(/\/+$/, '')}/info`];
+  const tried = new Set<string>();
+
+  for (const candidate of searchBases) {
+    const base = candidate.replace(/\/+$/, '');
+    if (tried.has(base)) continue;
+    tried.add(base);
+
+    const searchListings = await fetchSearchListingCatalog({ base });
     if (searchListings.length > 0) {
       return searchListings;
     }
   }
 
-  return mapIndexListings(await fetchListingIndex());
+  const indexListings = mapIndexListings(await fetchListingIndex());
+  if (indexListings.length === 0) {
+    console.warn(
+      '[sitemap] no listings resolved from the search index or the node listing index; emitting static routes only'
+    );
+  }
+  return indexListings;
 }
 
 /**
@@ -73,7 +102,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // we anchor sitemap URLs at getSiteUrl() to reflect whichever domain served
   // this request rather than a build-time constant.
   const siteUrl = await getSiteUrl();
-  const listings = await fetchSitemapListings();
+  const listings = await fetchSitemapListings(siteUrl);
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
