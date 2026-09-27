@@ -285,6 +285,178 @@ export const SEO_GUIDES: SeoGuide[] = [
       },
     ],
   },
+  {
+    slug: 'shopify-alternative',
+    title: 'Self-hosted Shopify alternative: what actually changes',
+    description:
+      'What you gain and what you take on when you move from a hosted commerce platform to a self-hosted marketplace, compared on hosting, crypto checkout, data ownership and buyer protection.',
+    lead:
+      'Shopify is a hosted commerce platform: it runs the storefront, holds the account, and settles payments to the merchant. A self-hosted marketplace such as Mobazha inverts that — you run the software, the catalogue and customer records live in your database, and crypto settles to wallets you control. The useful question is not which one is better, but which of those trade-offs your business can absorb.',
+    sections: [
+      {
+        heading: 'The comparison in one table',
+        table: {
+          columns: ['', 'Hosted platform (Shopify)', 'Self-hosted marketplace (Mobazha)'],
+          rows: [
+            ['Who runs the storefront', 'The platform', 'You'],
+            ['Where customer data lives', "The platform's database", 'Your database'],
+            ['Storefront address', 'Your domain, on their infrastructure', 'Your domain, on your infrastructure'],
+            ['Crypto checkout', 'Added through a third-party payment provider', 'Part of checkout, settling to wallets you control'],
+            ['Buyer protection', 'Card chargebacks, where the card network applies', 'Funds held until the order completes; disputes go to a moderator'],
+            ['App ecosystem', 'Very large', 'Small — it is a marketplace, not a storefront platform'],
+            ['Strongest at', 'Card-first retail, shipping and tax integrations', 'Crypto-settled sales, multi-seller marketplaces, owning the store'],
+          ],
+        },
+      },
+      {
+        heading: 'Where the hosted platform is the better answer',
+        paragraphs: [
+          'It is worth being blunt about this, because a comparison that only argues one way is not useful. If most of your revenue arrives by card, you ship physical goods with carrier and tax integrations, and you want a large app ecosystem plus a support contract, a hosted platform is doing real work for you. Replacing that with self-hosted software means replacing all of it yourself.',
+          'The same applies if you need a storefront platform for a single brand with themes, marketing apps and point-of-sale hardware. That is a different product category from a marketplace.',
+        ],
+      },
+      {
+        heading: 'Where a self-hosted marketplace wins',
+        bullets: [
+          'Settlement: crypto payments reach wallets you control instead of passing through a platform account.',
+          'Data: the customer list, order history and catalogue stay in a database you can back up, query and export.',
+          'Continuity: nothing can switch the store off remotely, because the store is your deployment.',
+          'Multi-seller operation: a marketplace with listing moderation and per-order buyer protection is the product, not an add-on.',
+          'Search equity: links and rankings accrue to the domain you keep.',
+        ],
+      },
+      {
+        heading: 'What you take on',
+        bullets: [
+          'Hosting, TLS and upgrades are yours to run.',
+          'Backups and a tested restore plan are yours to own.',
+          'There is no support contract: documentation and the project issue tracker.',
+          'Refunds and disputes are your policy, executed with the marketplace tools.',
+          'A smaller integration ecosystem — budget for wiring up anything unusual.',
+        ],
+      },
+      {
+        heading: 'A pragmatic middle path',
+        paragraphs: [
+          'The two models are not mutually exclusive. A seller can keep a hosted storefront for card-first retail and run a self-hosted marketplace alongside it for crypto-settled sales, community sellers or a region where card processing is awkward. Nothing in either model prevents that, and it is often the way teams migrate: move the channel that hurts, keep the one that works.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Is Mobazha a drop-in Shopify replacement?',
+        answer:
+          'No. Mobazha is a marketplace you host, not a single-brand storefront platform with a large app ecosystem. If you depend on shipping and tax integrations or theme apps, it does not replace them one for one — it is a different model, and the trade-offs are the ones in the table above.',
+      },
+      {
+        question: 'Does Shopify support crypto payments natively?',
+        answer:
+          'On a hosted platform, crypto arrives through third-party payment providers rather than as part of the platform itself. Mobazha has crypto checkout built in: buyers pay on a supported network and the funds settle to wallets the seller controls.',
+      },
+      {
+        question: 'Will moving to a self-hosted marketplace hurt SEO?',
+        answer:
+          'Only if you change domain. Self-hosting means the store is served from a domain you own, so the links and rankings you accumulate stay attached to something you keep, rather than to a platform-controlled address.',
+      },
+      {
+        question: 'Can I run a hosted storefront and a self-hosted marketplace at the same time?',
+        answer:
+          'Yes. Nothing in either model prevents running both channels, and it is a common way to migrate: keep the platform for card-first sales while the self-hosted marketplace takes the crypto-settled or community-seller traffic.',
+      },
+      {
+        question: 'How does buyer protection differ?',
+        answer:
+          "Card payments rely on the card network's chargeback process. Crypto cannot be reversed, so Mobazha holds the funds for an order and releases them when the buyer confirms or the protection period ends — 14 days for physical goods, 3 for digital products and 7 for services.",
+      },
+    ],
+  },
+  {
+    slug: 'openbazaar-alternative',
+    title: 'OpenBazaar alternative: what to look for now',
+    description:
+      'The original OpenBazaar client is no longer in active development. If you are looking for a replacement, these are the requirements that decide whether it is still running next year.',
+    lead:
+      'OpenBazaar proved that a peer-to-peer marketplace could run without a company in the middle. The original client is no longer actively developed, so anyone looking for an alternative is really asking a practical question: what does a marketplace need in order to still be running next year, and does that software exist today?',
+    sections: [
+      {
+        heading: 'Why the original project stalled',
+        paragraphs: [
+          "OpenBazaar and its successor Haven are no longer actively developed. The lesson is not that peer-to-peer commerce failed, but that a marketplace has to be maintainable by the people running it: a project whose development depends on one team's funding stops when that funding does.",
+          'That is the lens to judge a replacement through. Not "is it decentralized?", but "if the current maintainers stop, can I keep my store running?"',
+        ],
+      },
+      {
+        heading: 'Requirements that decide whether a replacement survives',
+        bullets: [
+          'Still maintained: releases, dependency updates and security fixes you can follow.',
+          'Self-hostable: a deployment you can keep running without anyone else\u2019s permission.',
+          'Ordinary web deployment: a container or a standard web host, rather than a specialised client that needs its own machine and NAT traversal.',
+          'Crypto settlement you control: payments arrive at wallets you hold.',
+          'Real buyer protection: funds held with deadlines and a dispute path, not just trust in the seller.',
+          'An open licence, so you can fork the code if the project is abandoned.',
+          'A documented upgrade and backup path, because a store you cannot restore is not really yours.',
+        ],
+      },
+      {
+        heading: 'How Mobazha measures against those requirements',
+        table: {
+          columns: ['Requirement', 'Mobazha'],
+          rows: [
+            ['Licence', 'MPL-2.0, so you can fork and self-host it'],
+            ['Self-hosting', 'Ships a stand-alone deployment alongside the hosted platform'],
+            ['Deployment', 'A container or a standard web deployment on your own domain'],
+            ['Crypto checkout', 'USDT on BSC, Solana, Base, Polygon and Ethereum mainnet; TRON is not accepted'],
+            ['Buyer protection', 'Funds held per order, 14/3/7-day protection periods, mediator-handled disputes'],
+            ['Marketplace features', 'Multiple sellers, listing moderation and per-order protection'],
+          ],
+        },
+      },
+      {
+        heading: 'Questions to ask any alternative',
+        bullets: [
+          'Who is actively maintaining it, and when was the last release?',
+          'Can I export my catalogue, orders and customers if I leave?',
+          'Does checkout hold funds, or does the seller receive them immediately?',
+          'What happens if the project stops — is the licence permissive enough to fork?',
+          'Can I run it on a server I control, on a domain I own?',
+        ],
+      },
+      {
+        heading: 'Practical migration notes',
+        paragraphs: [
+          'There is no OpenBazaar-specific importer in Mobazha, so budget for a one-off mapping of products and customers. Mobazha does ship product import tooling for supplier catalogues and Gumroad exports, which covers part of the work if that is where your data already lives.',
+          'A migration is a good moment to fix listings rather than copy them: export the catalogue, re-check titles, images, condition and shipping terms while you move, and keep the old store reachable until the new one is indexed.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Is OpenBazaar still maintained?',
+        answer:
+          'As of 2026, neither the original OpenBazaar client nor its successor Haven is actively developed. Treat both as historical references rather than a platform to build a business on.',
+      },
+      {
+        question: 'What is the closest alternative to OpenBazaar?',
+        answer:
+          "It depends on what you need. If you want a marketplace you host yourself with crypto settlement, that is self-hosted marketplace software such as Mobazha. If you want someone else to run it, a hosted platform is simpler but the account is not yours. If you only need one seller's storefront, a conventional shop platform may be enough.",
+      },
+      {
+        question: 'Can I migrate an existing OpenBazaar store?',
+        answer:
+          'There is no OpenBazaar importer, so products, orders and customer records need a one-off mapping. Mobazha does include import tooling for supplier catalogues and Gumroad exports, which reduces the manual work if your data is already in one of those formats.',
+      },
+      {
+        question: 'Does a decentralized marketplace still need a server?',
+        answer:
+          'Yes. "Decentralized" describes who is in control — you run the software and hold the data — not the absence of infrastructure. You still pay for a server and a domain, and you still keep backups.',
+      },
+      {
+        question: 'Is open-source marketplace software free to use?',
+        answer:
+          'The licence costs nothing: Mobazha is MPL-2.0, so you can run and modify it. Your costs are the server, the domain and crypto network fees, plus the time it takes to keep the deployment updated.',
+      },
+    ],
+  },
 ];
 
 export function findGuide(slug: string): SeoGuide | undefined {
