@@ -84,12 +84,20 @@ export interface SeoGuideArticleProps {
   /** Canonical site URL, used for the breadcrumb and FAQ structured data. */
   siteUrl: string;
   related?: SeoGuide[];
+  /**
+   * Overrides the generated structured data. Translated guides live under a
+   * different URL prefix (`/zh/help/...`), so their breadcrumb and FAQ URLs cannot
+   * come from the English path builder.
+   */
+  jsonLd?: unknown[];
 }
 
-export function SeoGuideArticle({ guide, siteUrl, related = [] }: SeoGuideArticleProps) {
+export function SeoGuideArticle({ guide, siteUrl, related = [], jsonLd }: SeoGuideArticleProps) {
+  const structuredData = jsonLd ?? buildGuideJsonLd(guide, siteUrl);
+
   return (
     <>
-      {buildGuideJsonLd(guide, siteUrl).map((node, index) => (
+      {structuredData.map((node, index) => (
         <script
           key={index}
           type="application/ld+json"
