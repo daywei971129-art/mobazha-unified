@@ -27,6 +27,7 @@ import { ProductModalProvider, PaymentSelectorProvider } from '@/hooks';
 import { defaultFont, storeFontVariableClasses } from '@/lib/fonts';
 import { TGBackButtonManager } from '@/components/TGMiniAppProvider';
 import { getRequestMarketplaceContext } from '@/lib/ssrMarketplace';
+import { getRequestUrl } from '@/lib/requestUrl';
 import { getSiteUrl } from '@/lib/siteUrl';
 
 /**
@@ -149,6 +150,11 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const hdrs = await headers();
   const storefrontPeerID = hdrs.get('x-storefront-peerid') || hdrs.get('x-store-peerid') || null;
+  // Language is carried by the URL prefix so crawlers, screen readers and link
+  // previews see the right language: `/zh/...` is Simplified Chinese, everything
+  // else is English. The client-side locale preference does not change the URL.
+  const requestUrl = await getRequestUrl();
+  const htmlLang = requestUrl?.pathname.startsWith('/zh') ? 'zh-Hans' : 'en';
   const {
     subdomain: marketplaceSubdomain,
     domain: marketplaceDomain,
@@ -157,7 +163,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html
-      lang="en"
+      lang={htmlLang}
       {...(storefrontPeerID ? { 'data-storefront': storefrontPeerID } : {})}
       suppressHydrationWarning
     >
@@ -176,6 +182,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             __html: `
               (function() {
                 try {
+                  // Pages under /zh/ state their language in the URL and in the
+                  // server-rendered <html lang>, so a saved locale must not win.
+                  if (location.pathname === '/zh' || location.pathname.indexOf('/zh/') === 0) return;
                   var saved = localStorage.getItem('mobazha-locale');
                   if (saved) {
                     document.documentElement.lang = saved;
