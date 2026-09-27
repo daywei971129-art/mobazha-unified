@@ -372,17 +372,31 @@ export const SEO_GUIDES: SeoGuide[] = [
   },
   {
     slug: 'openbazaar-alternative',
-    title: 'OpenBazaar alternative: what to look for now',
+    title: 'OpenBazaar is no longer maintained: what the community did next',
     description:
-      'The original OpenBazaar client is no longer in active development. If you are looking for a replacement, these are the requirements that decide whether it is still running next year.',
+      'OpenBazaar 2.0 reached end of life in January 2021 when OB1 exhausted its funding and closed the infrastructure. People from that community continued the work as Mobazha. Here is the timeline, and what it means if you are looking for a replacement.',
     lead:
-      'OpenBazaar proved that a peer-to-peer marketplace could run without a company in the middle. The original client is no longer actively developed, so anyone looking for an alternative is really asking a practical question: what does a marketplace need in order to still be running next year, and does that software exist today?',
+      'OpenBazaar 2.0 reached end of life in January 2021: OB1, the company behind it, had spent the roughly $4.2M it raised, asked users to withdraw their funds and closed the infrastructure that held the network together. Mobazha was started by people from that community who did not want the work to stop — we are an independent successor, not affiliated with or endorsed by the original OB1, OpenBazaar or Haven teams.',
     sections: [
       {
-        heading: 'Why the original project stalled',
+        heading: 'What actually happened to OpenBazaar',
         paragraphs: [
-          "OpenBazaar and its successor Haven are no longer actively developed. The lesson is not that peer-to-peer commerce failed, but that a marketplace has to be maintainable by the people running it: a project whose development depends on one team's funding stops when that funding does.",
-          'That is the lens to judge a replacement through. Not "is it decentralized?", but "if the current maintainers stop, can I keep my store running?"',
+          'The end was gradual rather than sudden. In September 2020 OpenBazaar announced it would halt its seed nodes from 1 October and discontinue support for the Haven wallet and the internal messenger. On 4 January 2021 OB1 announced it was deprecating the remaining infrastructure, including the blockbook wallet APIs. By 15 January 2021 the servers had stopped functioning.',
+          'OB1 raised about $4.2M in 2014 and spent it across seven years. Donation rounds through 2020 and 2021 did not close the gap, so the company asked users to withdraw their funds, shut the business down and closed the infrastructure because it could no longer pay for it. The software was never the problem — the funding was.',
+        ],
+      },
+      {
+        heading: 'Who continued it, and what Mobazha is',
+        paragraphs: [
+          'Mobazha is maintained by people who were part of the OpenBazaar community before the shutdown; some of us spent years trying to bring it to local shopkeepers and community markets. When OB1 announced it was quitting, we decided to keep building instead of letting it end. The name comes from the company behind the project, Mulgore Tech: Mobazha is short for "Mulgore Bazaar".',
+          'The continuation was announced publicly in the OpenBazaar subreddit in 2023, and that post is still up: reddit.com/r/OpenBazaar/comments/13bn0lw/openbazaar_is_alive_now_it_is_mobazha/. To be explicit about the boundaries — Mobazha is an independent successor. We are not OB1, we are not the former OpenBazaar team, and we are not endorsed by them. We do respect the work they did, including releasing the original under an open licence, which is what made continuing it possible at all.',
+        ],
+      },
+      {
+        heading: 'What this means if you are looking for an alternative',
+        paragraphs: [
+          'Someone searching for an "OpenBazaar alternative" today is usually asking one of two things. Either they want the same idea — a marketplace where the operator is not a company in the middle — or they still have a store from that era and want to know where to put it.',
+          'For the first question, judge any replacement on whether it can survive its maintainers: an ordinary web deployment you can host, a permissive licence, and a documented backup and upgrade path. For the second, the honest answer is that there is no automatic importer, so migration is a mapping exercise — see the migration notes below.',
         ],
       },
       {
@@ -431,9 +445,19 @@ export const SEO_GUIDES: SeoGuide[] = [
     ],
     faq: [
       {
+        question: 'What happened to OpenBazaar?',
+        answer:
+          'OpenBazaar 2.0 reached end of life in January 2021. OB1, the company behind it, had raised about $4.2M in 2014 and ran out of runway; donation rounds through 2020 and 2021 did not close the gap. It halted seed nodes and Haven wallet support in late 2020, deprecated the remaining infrastructure on 4 January 2021, and by 15 January 2021 the servers had stopped.',
+      },
+      {
+        question: 'Is Mobazha the successor to OpenBazaar?',
+        answer:
+          'Mobazha is an independent successor: it is built by people who were part of the OpenBazaar community before the shutdown and chose to continue the work. It is not affiliated with, endorsed by or operated by OB1 or the former OpenBazaar and Haven teams. The continuation was announced in the OpenBazaar subreddit in 2023.',
+      },
+      {
         question: 'Is OpenBazaar still maintained?',
         answer:
-          'As of 2026, neither the original OpenBazaar client nor its successor Haven is actively developed. Treat both as historical references rather than a platform to build a business on.',
+          'No. The original client and its successor Haven stopped being actively developed after the 2021 shutdown. If you want something to build a store on today, treat them as history rather than as a running platform.',
       },
       {
         question: 'What is the closest alternative to OpenBazaar?',
@@ -454,6 +478,181 @@ export const SEO_GUIDES: SeoGuide[] = [
         question: 'Is open-source marketplace software free to use?',
         answer:
           'The licence costs nothing: Mobazha is MPL-2.0, so you can run and modify it. Your costs are the server, the domain and crypto network fees, plus the time it takes to keep the deployment updated.',
+      },
+    ],
+  },
+  {
+    slug: 'openbazaar-successor',
+    title: "OpenBazaar's successor: the timeline from shutdown to today",
+    description:
+      "A dated record of OpenBazaar's shutdown — seed nodes and Haven in 2020, OB1's deprecation notice on 4 January 2021, servers off by 15 January — and how people from that community continued the work as Mobazha.",
+    lead:
+      "OpenBazaar's successor is Mobazha, an independent continuation built by people from the original community after OB1 wound the project down in January 2021. This page is the dated record: what happened, when it happened, what carried over, and how to check every claim for yourself.",
+    sections: [
+      {
+        heading: 'The shutdown, dated',
+        table: {
+          columns: ['When', 'What happened'],
+          rows: [
+            ['2014', 'OB1 raises about $4.2M to build OpenBazaar'],
+            ['September 2020', 'OpenBazaar announces it will halt its seed nodes from 1 October and discontinue support for the Haven wallet and internal messenger'],
+            ['4 January 2021', 'OB1 announces deprecation of the remaining infrastructure, including the blockbook wallet APIs'],
+            ['15 January 2021', 'The servers stop functioning; users are asked to withdraw funds'],
+            ['2020–2021', 'Several donation rounds fail to close the funding gap; the company shuts down and closes the infrastructure'],
+            ['2023', 'The continuation is announced publicly in the OpenBazaar subreddit: "OpenBazaar is alive, now it is Mobazha"'],
+          ],
+        },
+      },
+      {
+        heading: 'What carried over, and what changed',
+        bullets: [
+          'Carried over: the idea that the operator of a marketplace should not be a company sitting between buyer and seller, and the open-source licence that made continuing the work possible.',
+          'Carried over: the community — some of us had spent years introducing OpenBazaar to local shopkeepers and community markets before the shutdown.',
+          'Changed: Mobazha runs as a web deployment rather than a desktop client, so an operator can host a storefront with ordinary hosting, a domain and a database.',
+          'Changed: checkout settles in crypto to seller-controlled wallets, and every order is held with a protection period instead of being released immediately.',
+          'Added: multi-seller stores, listing moderation and a dispute process with deadlines and a mediator.',
+        ],
+      },
+      {
+        heading: 'How to verify this yourself',
+        bullets: [
+          'The continuation post is public in the OpenBazaar subreddit: reddit.com/r/OpenBazaar/comments/13bn0lw/openbazaar_is_alive_now_it_is_mobazha/',
+          'The source is public and licensed MPL-2.0: github.com/mobazha/mobazha-unified',
+          'The project is listed on BNB Chain\'s official dApp directory with on-chain activity: dappbay.bnbchain.org/detail/mobazha',
+          'The name is documented: Mobazha is short for "Mulgore Bazaar", from Mulgore Tech, the company behind the project.',
+        ],
+      },
+      {
+        heading: 'If you still have an OpenBazaar-era store',
+        paragraphs: [
+          'There is no automatic importer, so a migration is a mapping exercise: export what you can, re-create listings, and keep the old store reachable while the new one is indexed. Mobazha does ship import tooling for supplier catalogues and Gumroad exports, which covers part of the work if your data is already in one of those formats.',
+          'A migration is a good moment to fix listings rather than copy them — re-check titles, images, condition, shipping terms and category while you move.',
+        ],
+      },
+      {
+        heading: 'What we are not claiming',
+        paragraphs: [
+          'Mobazha is an independent successor. We are not OB1, we are not the former OpenBazaar team, we do not own the OpenBazaar or Haven names, and we are not endorsed by anyone who does. We also do not claim that the original codebase is being carried forward line by line — Mobazha is its own implementation, written to keep the same idea running with maintainable, ordinary web technology.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Who owns OpenBazaar now?',
+        answer:
+          'OB1, the company that built it, shut the project down in January 2021 and closed its infrastructure after running out of funding. The software was released under an open licence, which is what allows others to continue working with it.',
+      },
+      {
+        question: 'Is Mobazha endorsed by the original OpenBazaar team?',
+        answer:
+          'No, and we do not claim to be. Mobazha is an independent successor built by former community members. It is not affiliated with, endorsed by or operated by OB1 or the former OpenBazaar and Haven teams.',
+      },
+      {
+        question: 'How can I tell whether a "successor" claim is real?',
+        answer:
+          'Ask for three things: a dated, public announcement of the continuation; verifiable evidence of who is building it (a public repository, a company, an active listing); and an explicit statement of what the project is not claiming. A claim with no dates and no verifiable evidence should be treated as marketing rather than succession.',
+      },
+      {
+        question: 'What happened to Haven?',
+        answer:
+          'Haven was the successor product from the same team after OpenBazaar 2.0. Support for the Haven wallet and messenger ended in late 2020, and it is not actively developed today.',
+      },
+      {
+        question: 'Is the original OpenBazaar code still available?',
+        answer:
+          'The original repositories were published under open licences before the shutdown, so the code remains available to read, fork and learn from. What is gone is the hosted infrastructure, the seed network and the funding that kept development going.',
+      },
+    ],
+  },
+  {
+    slug: 'marketplace-alternatives',
+    title: 'Etsy, Amazon, Temu and Ozon alternatives: what to use when you want to keep your store',
+    description:
+      'The realistic alternatives for sellers leaving Etsy, Amazon, Temu or Ozon, compared on the three things that actually matter: who owns the customer list, who can close the store, and how the money reaches you.',
+    lead:
+      'There is no single "Etsy alternative" or "Amazon alternative". The honest options split into three groups: move to another marketplace, move to a hosted store builder, or run software you host yourself. What separates them is not the feature list but three questions — who owns the customer list, who can switch the store off, and how the money reaches you.',
+    sections: [
+      {
+        heading: 'Why sellers leave each platform',
+        table: {
+          columns: ['Leaving', 'The reason that usually triggers it'],
+          rows: [
+            ['Etsy', 'Rising fees and ad spend, and account suspensions that arrive without a clear appeal path'],
+            ['Amazon', 'Account deactivation and funds held while a case is reviewed — often the entire business in one decision'],
+            ['Temu', 'Price-led competition that leaves little brand equity and no customer relationship'],
+            ['Ozon', 'Cross-border settlement and payout friction, and exposure to local regulatory changes'],
+            ['eBay', 'Fee changes and account limits on established sellers'],
+            ['Walmart Marketplace', 'Strict approval and performance thresholds with suspension as the enforcement tool'],
+          ],
+        },
+      },
+      {
+        heading: 'The three real alternatives',
+        table: {
+          columns: ['Option', 'Who can close it', 'Customer list', 'Payments'],
+          rows: [
+            ['Another marketplace', 'The new platform too', 'Stays with the platform', 'Platform-controlled'],
+            ['Hosted store builder', 'The vendor, under its terms', 'Yours, but on their platform', 'Cards, plus add-ons'],
+            ['Self-hosted marketplace / store', 'You', 'In your own database', 'Crypto settled to your wallets'],
+          ],
+        },
+      },
+      {
+        heading: 'The three questions that decide it',
+        bullets: [
+          'Who owns the customer list? If you cannot export it and keep emailing those buyers, you are renting your audience rather than building one.',
+          'Who can turn the store off? On a platform, the answer is "someone else, under their terms, with an appeal of unknown length".',
+          'How does the money reach you? Card settlement can be held or reversed through chargebacks; crypto settles directly, but it cannot be reversed either, so protection has to come from holding funds until the order completes.',
+        ],
+      },
+      {
+        heading: 'Where crypto settlement changes the answer',
+        paragraphs: [
+          'If you sell physical goods or services delivered outside the app, crypto payments are a legitimate settlement path — the App Store guidelines, for example, require sellers of physical goods to use something other than in-app purchase. That is a narrow but very useful place where "accept crypto" is not a workaround but the expected route.',
+          'The catch is that crypto cannot be reversed, so a marketplace that takes crypto has to protect the buyer another way: hold the payment, release it when the order is confirmed or the protection period ends, cancel and refund automatically when the seller never ships, and route unresolved disputes to a mediator. On Mobazha those periods are 14 days for physical goods, 3 days for digital products and 7 days for services.',
+        ],
+      },
+      {
+        heading: 'Migrating without losing your customers',
+        bullets: [
+          'Export everything the old platform will give you before you announce anything — product data, order history, and any customer contact list you are entitled to keep.',
+          'Announce the new store to your own list first; the audience you already have is the only demand you control.',
+          'Re-create your best listings first rather than all of them, and fix titles, images and categories while you move.',
+          'Keep the old storefront reachable until the new one is indexed, then redirect what you can.',
+          'Tell buyers why you moved — "you can now buy from us directly" converts better than a generic announcement.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Is there an Etsy alternative that pays out in crypto?',
+        answer:
+          'Yes, if you run the store yourself. A self-hosted or hosted marketplace with crypto checkout settles payments to wallets you control instead of to a platform balance. Mobazha is one example: it accepts USDT on BSC, Solana, Base, Polygon and Ethereum mainnet and settles to seller-owned wallets.',
+      },
+      {
+        question: 'What can I use instead of Amazon if my seller account was suspended?',
+        answer:
+          'Moving to another large marketplace repeats the same risk, because another company still holds the account and the funds. The alternatives that remove that specific risk are a hosted store builder on your own domain, or software you host yourself so no third party can deactivate the store.',
+      },
+      {
+        question: 'Is there a Temu alternative for sellers who want their own brand?',
+        answer:
+          'Temu competes on price rather than brand, so the opposite of Temu is having your own storefront with your own name and your own customer list. Any hosted builder or self-hosted marketplace does that; the difference is only who controls the infrastructure and how you get paid.',
+      },
+      {
+        question: 'What about Ozon for cross-border sellers?',
+        answer:
+          'The recurring complaints are settlement and payout friction plus exposure to local regulatory change. If cross-border payouts are the problem you are solving, look for a setup where settlement does not depend on one platform being able to pay you — for crypto sellers that means settling directly to wallets.',
+      },
+      {
+        question: 'Do I lose my customers when I leave a marketplace?',
+        answer:
+          'You lose the *relationship* unless you exported the contact data you are entitled to and keep selling to them directly. That is why the customer list question comes before the feature list when comparing alternatives.',
+      },
+      {
+        question: 'Can I run my own marketplace instead of selling on someone else\u2019s?',
+        answer:
+          'Yes. Self-hostable marketplace software such as Mobazha can run on your own server and domain, support multiple sellers, and keep the catalogue, orders and customer records in your own database. The trade-off is that hosting, backups, support and refunds become your responsibility.',
       },
     ],
   },
