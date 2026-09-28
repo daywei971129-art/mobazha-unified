@@ -7,7 +7,7 @@ import type { PartialTranslationResource } from '../types';
 export const de: PartialTranslationResource = {
   adminDecrypt: {
     cancel: 'Abbrechen',
-    clearAndClose: 'Skizze lÃÂ¶schen',
+    clearAndClose: 'Leeren und schließen',
     decryptButton: 'Adresse entschlüsseln',
     decryptedSuccess: 'Adresse entschlüsselt (nur im Browser)',
     decrypting: 'Entschlüsselung',

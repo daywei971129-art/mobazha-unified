@@ -7,7 +7,7 @@ import type { PartialTranslationResource } from '../types';
 export const ja: PartialTranslationResource = {
   adminDecrypt: {
     cancel: 'キャンセル',
-    clearAndClose: 'ã¹ã±ãããã¯ãªã¢',
+    clearAndClose: '消去して閉じる',
     decryptButton: 'アドレスを復号する',
     decryptedSuccess: '復号されたアドレス（ブラウザのみ）',
     decrypting: '復号化',
