@@ -7,7 +7,7 @@ import type { PartialTranslationResource } from '../types';
 export const ja: PartialTranslationResource = {
   adminDecrypt: {
     cancel: 'キャンセル',
-    clearAndClose: 'ã¹ã±ãããã¯ãªã¢',
+    clearAndClose: '消去して閉じる',
     decryptButton: 'アドレスを復号する',
     decryptedSuccess: '復号されたアドレス（ブラウザのみ）',
     decrypting: '復号化',
@@ -2716,7 +2716,7 @@ export const ja: PartialTranslationResource = {
       'Mobazhaは分散型プラットフォームであり、購入者と販売者間の取引を管理しません。ご自身の責任でプラットフォームをご利用ください。',
     termsLiabilityDescPlatform:
       'Mobazhaは分散型プラットフォームであり、購入者と出品者間の取引を管理しません。ご利用は自己責任でお願いします。',
-    lastUpdated: '最終更新',
+    lastUpdated: 'Последнее обновление',
   },
   trust: {
     buyerProtection: 'バイヤー保護',
