@@ -7,7 +7,7 @@ import type { PartialTranslationResource } from '../types';
 export const ru: PartialTranslationResource = {
   adminDecrypt: {
     cancel: 'Отмена',
-    clearAndClose: 'ÐÑÐ¸ÑÑÐ¸ÑÑ Ð¿ÑÐ¸ Ð·Ð°ÐºÑÑÑÐ¸Ð¸',
+    clearAndClose: 'Очистить и закрыть',
     decryptButton: 'Расшифровать адрес',
     decryptedSuccess: 'Адрес расшифрован (только в браузере)',
     decrypting: 'Расшифровка...',
@@ -3054,7 +3054,7 @@ export const ru: PartialTranslationResource = {
           currentStatus: 'Текущее состояние',
           emptySubmitCta: 'Отправить карту',
           historySection: 'История',
-          lastUpdated: '最近更新时间',
+          lastUpdated: 'Последнее обновление',
           listingBindingsBlockedDesc: 'Прежде чем продолжить, добавьте этот элемент в объявление.',
           listingBindingsBlockedTitle: 'Ссылка на объявление недоступна',
           showAllCases: 'Показать все {{count}}случаев',
