@@ -3046,7 +3046,7 @@ export const ru: PartialTranslationResource = {
           currentStatus: 'Текущее состояние',
           emptySubmitCta: 'Отправить карту',
           historySection: 'История',
-          lastUpdated: '最近更新时间',
+          lastUpdated: 'Последнее обновление',
           listingBindingsBlockedDesc: 'Прежде чем продолжить, добавьте этот элемент в объявление.',
           listingBindingsBlockedTitle: 'Ссылка на объявление недоступна',
           showAllCases: 'Показать все {{count}}случаев',
