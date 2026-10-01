@@ -27,8 +27,7 @@ import { ProductModalProvider, PaymentSelectorProvider } from '@/hooks';
 import { defaultFont, storeFontVariableClasses } from '@/lib/fonts';
 import { TGBackButtonManager } from '@/components/TGMiniAppProvider';
 import { getRequestMarketplaceContext } from '@/lib/ssrMarketplace';
-import { getCanonicalSiteUrl, getSiteUrl, isNamedStorefrontRequest } from '@/lib/siteUrl';
-import { getRequestUrl } from '@/lib/requestUrl';
+import { getSiteUrl } from '@/lib/siteUrl';
 
 /**
  * AuthProvider 加载状态
@@ -50,52 +49,6 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (typeof __SOVEREIGN__ !== 'undefined' && __SOVEREIGN__ ? '' : 'https://app.mobazha.org');
 
-/**
- * Structured data for the Mobazha organisation itself.
- *
- * Search engines and generative engines both use this to disambiguate the brand
- * from the many unrelated "decentralized marketplace" pages, and `sameAs` is the
- * cheapest way to connect the app to the docs site and the source repository.
- * The `@id` is stable so other nodes can reference it.
- */
-function buildOrganizationJsonLd(siteUrl: string) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-    name: 'Mobazha',
-    url: siteUrl,
-    logo: `${siteUrl}/icons/icon-512x512.png`,
-    description:
-      'Mobazha is a decentralized, self-hostable peer-to-peer marketplace where sellers keep their own storefront, customer relationships and crypto payments.',
-    sameAs: [
-      'https://github.com/mobazha/mobazha-unified',
-      'https://docs.mobazha.org',
-      'https://mobazha.org',
-    ],
-  } as const;
-}
-
-/** `WebSite` node so engines can offer a sitelinks search box for Mobazha. */
-function buildWebsiteJsonLd(siteUrl: string) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': `${siteUrl}/#website`,
-    name: 'Mobazha',
-    url: siteUrl,
-    publisher: { '@id': `${siteUrl}/#organization` },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
-  } as const;
-}
-
 const defaultMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -116,11 +69,13 @@ const defaultMetadata: Metadata = {
     siteName: 'Mobazha',
     title: 'Mobazha - Decentralized Marketplace',
     description: 'Shop and grow with cryptos - A decentralized peer-to-peer marketplace',
+    images: [{ url: '/og-default.png', width: 1200, height: 630, alt: 'Mobazha' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Mobazha - Decentralized Marketplace',
     description: 'Shop and grow with cryptos - A decentralized peer-to-peer marketplace',
+    images: ['/og-default.png'],
   },
   appleWebApp: {
     capable: true,
@@ -134,49 +89,25 @@ const defaultMetadata: Metadata = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [marketplace, requestSiteUrl, canonicalSiteUrl, requestUrl] = await Promise.all([
+  const [marketplace, requestSiteUrl] = await Promise.all([
     getRequestMarketplaceContext(),
     getSiteUrl(),
-    getCanonicalSiteUrl(),
-    getRequestUrl(),
   ]);
   const marketplaceConfig = marketplace.config;
 
-  /**
-   * Self-referencing canonical for every route that does not publish its own.
-   *
-   * `/product/*` and `/store/*` override `alternates` with their own value, and
-   * named storefront subdomains resolve `getCanonicalSiteUrl()` to the main
-   * store, so their pages consolidate onto the canonical host automatically.
-   * Query strings are dropped on purpose: `/search?q=…&sortBy=…` permutations
-   * all point at `/search`, which is the signal we want for filters and sorts.
-   */
-  const selfCanonical = requestUrl
-    ? `${canonicalSiteUrl}${requestUrl.pathname === '/' ? '/' : requestUrl.pathname.replace(/\/+$/, '')}`
-    : undefined;
-  const alternates = selfCanonical
-    ? { canonical: selfCanonical }
-    : undefined;
-
   if (!marketplaceConfig) {
-    return {
-      ...defaultMetadata,
-      ...(alternates && { alternates }),
-    };
+    return defaultMetadata;
   }
 
   const brandName = marketplaceConfig.brand.name || 'Mobazha Marketplace';
   const description =
     marketplaceConfig.brand.tagline ||
     'Shop and grow with cryptos - A decentralized peer-to-peer marketplace';
-  // Only advertise a brand image when the operator actually configured one —
-  // otherwise fall through to the generated `opengraph-image` route.
-  const image = marketplaceConfig.brand.banner || marketplaceConfig.brand.logo;
+  const image = marketplaceConfig.brand.banner || marketplaceConfig.brand.logo || '/og-default.png';
 
   return {
     ...defaultMetadata,
     metadataBase: new URL(requestSiteUrl || siteUrl),
-    ...(alternates && { alternates }),
     title: {
       default: brandName,
       template: `%s | ${brandName}`,
@@ -187,13 +118,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: brandName,
       title: brandName,
       description,
-      ...(image && { images: [{ url: image, width: 1200, height: 630, alt: brandName }] }),
+      images: [{ url: image, width: 1200, height: 630, alt: brandName }],
     },
     twitter: {
       card: 'summary_large_image',
       title: brandName,
       description,
-      ...(image && { images: [image] }),
+      images: [image],
     },
     appleWebApp: {
       capable: true,
@@ -237,16 +168,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     domain: marketplaceDomain,
     config: marketplaceConfig,
   } = await getRequestMarketplaceContext();
-  const [canonicalSiteUrl, namedStorefront] = await Promise.all([
-    getCanonicalSiteUrl(),
-    isNamedStorefrontRequest(),
-  ]);
-  // Named storefronts are `robots: noindex` duplicates of the main store, and
-  // store pages already publish their own Organization node — restating the
-  // site-wide identity there would only muddy the entity graph.
-  const jsonLdNodes = namedStorefront
-    ? []
-    : [buildOrganizationJsonLd(canonicalSiteUrl), buildWebsiteJsonLd(canonicalSiteUrl)];
 
   return (
     <html
@@ -399,16 +320,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             `,
           }}
         />
-        {/* Site-wide structured data (Organization + WebSite/SearchAction). */}
-        {jsonLdNodes.map(node => (
-          <script
-            key={node['@type']}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(node).replace(/<\//g, '<\\/'),
-            }}
-          />
-        ))}
       </head>
       <body className={`${defaultFont.className} ${storeFontVariableClasses}`}>
         <QueryProvider>
