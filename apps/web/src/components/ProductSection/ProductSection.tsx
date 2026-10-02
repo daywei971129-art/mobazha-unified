@@ -175,6 +175,7 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
                       freeShipping={product.freeShipping}
                       isDigital={product.isDigital}
                       contractType={product.contractType}
+                      productType={product.item?.productType}
                       tokenStandard={product.tokenStandard}
                       rwaTradeMode={product.rwaTradeMode}
                       hasVerifiedModerator={hasVerifiedMod(product.moderators)}
