@@ -624,13 +624,13 @@ export function ProductDetail({
   const conditionLabel = conditionLabelKey
     ? t(conditionLabelKey)
     : (product.item.condition || '').replace(/_/g, ' ');
-  // 三类标签：普通商品 / 二手物品 / 手工艺品（手作显示卖家填写的类型名）
+  // 三类标签：普通商品 / 二手物品 / 手工艺品（与商品卡文案保持一致；二手在详情页保留更细的成色等级）
   const productKindLabel =
     productKind === 'handmade'
-      ? category || 'Handmade'
+      ? t('product.kind.handmade', { defaultValue: 'Handmade' })
       : productKind === 'used'
         ? conditionLabel
-        : t('listing.conditions.new');
+        : t('product.kind.new', { defaultValue: 'New' });
 
   const isCollectibleHubNft = product ? isCollectibleHubNftListing(product) : false;
   const isRwaToken =
