@@ -26,6 +26,7 @@ import type { ListingFormData, FormErrors, VariantOption, SkuItem } from '@mobaz
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { STANDARD_PRODUCT_TYPES } from '@mobazha/core';
 import {
   ProductTypeSelector,
   BasicInfoSection,
@@ -704,10 +705,16 @@ export function MobileListingWizard({
 
             <AccordionItem title={t('listing.productType')}>
               <Input
+                list="product-type-suggestions"
                 value={formData.productType}
                 onChange={e => updateField('productType', e.target.value)}
                 placeholder={t('listing.productTypePlaceholder')}
               />
+              <datalist id="product-type-suggestions">
+                {STANDARD_PRODUCT_TYPES.map(productType => (
+                  <option key={productType} value={productType} />
+                ))}
+              </datalist>
             </AccordionItem>
 
             {formData.contractType === 'PHYSICAL_GOOD' && (
