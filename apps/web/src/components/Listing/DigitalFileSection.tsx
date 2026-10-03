@@ -70,9 +70,12 @@ export function DigitalFileSection({
 
       for (const file of Array.from(selectedFiles)) {
         if (file.size > MAX_FILE_SIZE) {
+          const limitMessage = t('listing.digital.mediaFileTooLarge', {
+            defaultValue: 'File exceeds the 50 MB direct-upload limit',
+          });
           toast({
             title: t('common.error'),
-            description: `${file.name} ${t('listing.digital.fileTooLarge')}`,
+            description: `${file.name} ${limitMessage}`,
             variant: 'destructive',
           });
           continue;
