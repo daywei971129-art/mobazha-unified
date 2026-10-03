@@ -85,6 +85,7 @@ import { ListingPriceHierarchyBanner } from '@/components/Listing/ListingPriceHi
 import { ListingFulfillmentPricingPanel } from '@/components/Listing/ListingFulfillmentPricingPanel';
 import { TokenInput } from '@/components/ui/TokenInput';
 import { useIsMobile } from '@/hooks/useMediaQuery';
+import { useScrollToFirstError } from '@/hooks/useScrollToFirstError';
 
 // Sovereign is single-store: /store (no peerID) is the clean storefront URL.
 // SaaS /profile redirects to /store/:peerID — same intent, different path.
@@ -306,13 +307,12 @@ export default function EditListingPage() {
     }
   }, []);
 
-  // 校验失败后自动定位到第一个错误字段所在的页签
-  const firstErrorField = errorFields[0];
-  useEffect(() => {
-    if (!validationAttempted || !firstErrorField) return;
-    const section = ERROR_FIELD_SECTIONS[firstErrorField];
+  // 校验失败后自动定位：每次失败的提交，切到第一个错误字段所在的页签。
+  // 只按提交次数触发——否则用户修改字段、第一个错误前移时，页面会被拽到下一个错误处。
+  useScrollToFirstError(validationAttempts, errorFields[0], field => {
+    const section = ERROR_FIELD_SECTIONS[field];
     if (section) scrollToSection(section);
-  }, [validationAttempted, validationAttempts, firstErrorField, scrollToSection]);
+  });
 
   const {
     context: supplyContext,
