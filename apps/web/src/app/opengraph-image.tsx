@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MPL-2.0
+// Copyright (c) 2026 fengzie and the respective contributors.
+
 import { ImageResponse } from 'next/og';
 
 export const alt = 'Mobazha — the decentralized marketplace where sellers keep their store';
