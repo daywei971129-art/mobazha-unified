@@ -5,7 +5,81 @@
 import type { PartialTranslationResource } from '../types';
 
 export const pt: PartialTranslationResource = {
+  adminDecrypt: {
+    cancel: 'Cancelar',
+    clearAndClose: 'Limpar e fechar',
+    decryptButton: 'Descriptografar Endereço',
+    decryptedSuccess: 'Endereço descriptografado (apenas no navegador)',
+    decrypting: 'Descriptografando…',
+    decryptNow: 'Descriptografar',
+    decryptionFailed:
+      'Falha na descriptografia: {{message}}. Verifique se você está usando a chave privada correta.',
+    encryptedNotice:
+      'O endereço de envio está criptografado. Desbloqueie-o com sua frase secreta de recuperação (apenas neste navegador).',
+    passphrasePlaceholder: 'Frase secreta de recuperação',
+    printLabel: 'Imprimir Etiqueta',
+    privateKeyHint:
+      'Digite a frase secreta de recuperação que você criou na proteção de endereço. Ela nunca é enviada para a loja.',
+  },
+  marketplaceStarter: {
+    bannerSubtitle: 'Anúncios de operadores em destaque',
+    bannerTitle: 'Banners em destaque',
+    coldStart: {
+      becomeSeller: 'Inscreva-se para se tornar um vendedor',
+      howItWorks1: 'Cada pedido fica com o vendedor que você escolher.',
+      howItWorks2: 'A proteção do comprador e os pagamentos seguros se aplicam loja por loja.',
+      howItWorks3: 'Os vendedores são analisados antes de seus produtos aparecerem aqui.',
+      howItWorksTitle: 'Como funciona este mercado',
+      inventoryPreparing: 'O estoque está sendo preparado',
+      inviteOnly: 'Este mercado recebe vendedores somente por convite.',
+      notifyCta: 'Me avisar',
+      notifyDone: 'Você está na lista.',
+      notifyFailed: 'Isso não funcionou — verifique o endereço e tente novamente.',
+      notifyHint: 'Receba um e-mail quando os produtos forem lançados. Sem spam.',
+      notifyPlaceholder: 'you@example.com',
+      subtitle: 'Este mercado está apenas começando. Volte em breve para ver os anúncios.',
+    },
+    curatedSubtitle: 'Destaques selecionados pelo operador',
+    defaultName: 'Mercado',
+    curatedTitle: 'Escolhas da curadoria',
+    degraded: {
+      title: 'Não foi possível carregar os anúncios',
+      description: 'Ocorreu um erro ao carregar este mercado. Tente novamente.',
+    },
+    errorTitle: 'Mercado indisponível',
+    errorDescription: 'Não foi possível carregar este mercado no momento. Tente novamente.',
+    latestTitle: 'Anúncios recentes',
+    latestSubtitle: 'Novidades de vendedores aprovados',
+    loadingDescription: 'Preparando a descoberta com curadoria…',
+    loadingTitle: 'Carregando mercado',
+    popularSubtitle: 'Em alta neste mercado',
+    popularTitle: 'Escolhas populares',
+    searchPlaceholder: 'Pesquisar neste mercado',
+    sparse: {
+      notice:
+        'Exibindo os anúncios disponíveis enquanto este mercado monta suas escolhas em destaque.',
+    },
+    storesSubtitle: 'Compre diretamente de vendedores selecionados',
+    storesTitle: 'Lojas em destaque',
+    trustCopy:
+      'Cada pedido fica com o vendedor que você escolher. A proteção do comprador e os pagamentos seguros se aplicam loja por loja.',
+    visitStore: 'Visitar a loja',
+  },
+  sovereign: {
+    privacyHintDesc:
+      'Sua loja não faz nenhuma requisição de rede externa. Para máxima privacidade, acesse-a por um endereço Tor .onion ou eepsite I2P. Configure os endpoints de pagamento em Configurações → Pagamentos.',
+    privacyHint: 'Aviso de Privacidade',
+    setup: {
+      regionTitle: 'Localização',
+      regionDesc: 'Defina o seu país para cálculos de envio',
+    },
+  },
   common: {
+    connecting: 'Conectando...',
+    loadingInterrupted: 'Carregamento interrompido',
+    or: 'ou',
+    slowNetworkRetry: 'A conexão está lenta. Tentando novamente…',
+    unexpectedError: 'Algo deu errado',
     loading: 'Carregando...',
     redirecting: 'Redirecionando...',
     error: 'Erro',
@@ -159,6 +233,7 @@ export const pt: PartialTranslationResource = {
     priceRequired: 'Preço é obrigatório',
   },
   nav: {
+    back: 'Voltar',
     home: 'Início',
     market: 'Mercado',
     search: 'Pesquisar',
@@ -194,6 +269,8 @@ export const pt: PartialTranslationResource = {
     lastUpdated: 'Atualizado em {{date}}',
   },
   login: {
+    signInWithMobazha: 'Entrar com conta Mobazha',
+    socialLoginNotAdmin: 'Esta conta não tem acesso de administrador a esta loja.',
     title: 'Mobazha',
     subtitle: 'Marketplace descentralizado',
     hostedMode: 'Modo hospedado',
@@ -335,6 +412,7 @@ export const pt: PartialTranslationResource = {
     collectiblesDesc: 'Cartões tokenizados mantidos no Hub – resgate a qualquer momento',
   },
   product: {
+    storeOffline: 'Esta loja está offline no momento. Tente novamente mais tarde.',
     title: 'Título',
     description: 'Descrição',
     price: 'Preço',
@@ -1624,6 +1702,10 @@ export const pt: PartialTranslationResource = {
       claimRefund: 'Solicitar reembolso',
     },
     fulfillment: {
+      carrier: 'Transportadora',
+      copyTracking: 'Copiar número de rastreio',
+      packageShipped: 'Pacote enviado',
+      trackingNumber: 'Número de rastreio',
       title: 'Cumprimento do Fornecedor',
       loading: 'Carregando status de cumprimento...',
       supplierCost: 'Custo do fornecedor',
@@ -2194,6 +2276,11 @@ export const pt: PartialTranslationResource = {
         'Parece um endereço Bitcoin (BTC). O BCH geralmente usa bitcoincash: ou formatos legados – verifique antes de salvar.',
     },
     accountBinding: {
+      closeTabHint:
+        'Conta vinculada com sucesso. Você pode fechar esta aba e voltar para sua loja.',
+      standaloneConnectDesc:
+        'Conecte sua conta do Telegram, Discord ou Google para ativar o login social rápido. Entre primeiro na plataforma Mobazha para gerenciar suas contas vinculadas.',
+      standaloneSocialTitle: 'Vinculação de conta social',
       title: 'Contas vinculadas',
       description: 'Gerencie seus métodos de login',
       linked: 'Contas vinculadas',
@@ -2751,6 +2838,31 @@ export const pt: PartialTranslationResource = {
     },
   },
   marketplace: {
+    invite: {
+      accept: 'Participe como vendedor',
+      acceptedApproved: 'Você entrou no mercado.',
+      acceptedPending: 'Candidatura enviada — o operador vai analisá-la.',
+      acceptFailed: 'Não foi possível participar com este link. Tente novamente.',
+      accepting: 'Entrando…',
+      approvalLabel: 'Adesão',
+      autoApprove: 'Aprovado imediatamente',
+      commissionLabel: 'Comissão do operador',
+      exhausted: 'Este link de convite não é mais válido.',
+      goToSellPage: 'Gerenciar minha participação',
+      headline: 'Você foi convidado para vender em',
+      invalidBody:
+        'Ele pode ter expirado, sido revogado ou atingido o limite de uso. Peça um novo link ao operador do marketplace.',
+      invalidTitle: 'Este link de convite não é válido',
+      loadFailedBody: 'Tente novamente daqui a pouco.',
+      loadFailedTitle: 'Não foi possível carregar este convite',
+      loading: 'Verificando seu convite…',
+      loginToAccept: 'Entre para aceitar o convite',
+      manualReview: 'Revisado pelo operador',
+      resultApproved: 'Você entrou! Sua loja agora é membro.',
+      resultPending: 'Candidatura enviada. O operador vai analisá-la.',
+      termsNote:
+        'A comissão é cobrada sobre os pedidos que o marketplace traz para você, descontada dos seus ganhos. Participar nunca transfere sua loja, seus anúncios ou seus fundos para o operador.',
+    },
     title: 'Marketplaces da Comunidade',
     subtitle: 'Descubra e participe de marketplaces impulsionados pela comunidade.',
     searchPlaceholder: 'Pesquisar marketplaces...',
@@ -2780,6 +2892,10 @@ export const pt: PartialTranslationResource = {
       searchPlaceholder: 'Pesquisar membros...',
     },
     sell: {
+      marketCommissionLabel: 'Comissão do operador',
+      marketCommissionNone: '0%',
+      marketCommissionNote:
+        'A comissão do operador é cobrada sobre os pedidos que este marketplace traz para você, descontada dos seus ganhos. A taxa exibida é a taxa publicada; alterações exigem que o operador publique novamente.',
       backToMarketplace: 'Voltar ao marketplace',
       title: 'Tornar-se vendedor',
       subtitle: 'Complete seu perfil de vendedor para começar a listar produtos neste marketplace',
@@ -2948,6 +3064,24 @@ export const pt: PartialTranslationResource = {
         statusNextSuspended:
           'Próximo: entre em contato com o suporte ou com os operadores do mercado — seu acesso de vendedor está pausado.',
         workspace: {
+          activeSection: 'Ativo',
+          cardLocation: 'Localização',
+          cardChecked: 'Verificado',
+          countsAria: 'Totais de custódia',
+          currentStatus: 'Status atual',
+          emptySubmitCta: 'Enviar um cartão',
+          historySection: 'Histórico',
+          lastUpdated: 'Última atualização',
+          listingBindingsBlockedDesc: 'Adicione este item a um anúncio antes de continuar.',
+          listingBindingsBlockedTitle: 'Link do anúncio indisponível',
+          showAllCases: 'Mostrar todos os {{count}} casos',
+          nextActionSection: 'Próxima ação',
+          submitIntro: 'Envie um cartão para custódia e listagem.',
+          showFewerCases: 'Mostrar menos',
+          tabSubmit: 'Enviar',
+          tabTrack: 'Acompanhar',
+          trackIntro: 'Acompanhe a custódia e o status do anúncio dos seus cartões.',
+          viewAria: 'Visualizações do espaço de trabalho',
           title: 'Envios de cartões',
           lifecycle: {
             review: 'Revisão do curador',
@@ -3001,6 +3135,76 @@ export const pt: PartialTranslationResource = {
       step2Approval: 'Você será notificado quando houver uma decisão',
     },
     operator: {
+      attributionConversionTitle: 'Conversão',
+      addPositioningCta: '+ Adicione uma linha de posicionamento que os compradores verão',
+      attributionSource: 'Origem',
+      attributionOrders: 'Pedidos atribuídos',
+      attributionSourceDirect: 'Direto',
+      attributionSourcesTitle: 'Por origem de compartilhamento',
+      commissionRate: 'Comissão do operador',
+      attributionWindowLabel: 'Intervalo de tempo',
+      commissionRateHint:
+        'Cobrada dos vendedores sobre os pedidos gerados por este mercado. Entra em vigor para novos pedidos depois que você republicar; os vendedores veem a taxa publicada antes de participar.',
+      commissionRateInvalid: 'Insira uma taxa entre 0 e 30 (até 2 casas decimais).',
+      earningsCommission: 'Comissão',
+      earningsCurrency: 'Moeda',
+      earningsCurrentRate: 'Taxa atual',
+      earningsEmpty: 'Ainda não há pedidos atribuídos neste período.',
+      earningsEstimateNote:
+        'Os números são estimativas registradas no checkout e confirmadas na liquidação. Eles ainda não são um saldo a pagar.',
+      earningsGross: 'Bruto',
+      earningsLoadFailed: 'Não foi possível carregar o extrato de ganhos.',
+      earningsLoading: 'Carregando ganhos…',
+      earningsRatePendingPublish: '{{percent}}% após a próxima publicação',
+      earningsOrders: 'Pedidos',
+      inviteLinkAutoApprove: 'Aprovar automaticamente os vendedores a partir deste link',
+      earningsTitle: 'Ganhos de comissão',
+      inviteLinkCopied: 'Link copiado.',
+      inviteLinkCreated: 'Link de convite criado.',
+      inviteLinkCreate: 'Criar link',
+      inviteLinkCreatedCopied: 'Link de convite criado e copiado.',
+      inviteLinkCreateFailed: 'Não foi possível criar o link de convite.',
+      inviteLinkMaxUses: 'Usos máximos (0 = ilimitado)',
+      inviteLinkMaxUsesInvalid:
+        'Os usos máximos devem ser um número inteiro entre 0 (ilimitado) e 10000.',
+      inviteLinkModeAuto: 'Aprovação automática',
+      inviteLinkModeReview: 'Revisão manual',
+      inviteLinkRevoked: 'Link de convite revogado.',
+      inviteLinkRevokeFailed: 'Não foi possível revogar o link.',
+      inviteLinksDescription:
+        'Compartilhe um link na sua comunidade em vez de convidar vendedores um a um. Quem abrir o link vê os termos do seu marketplace — incluindo a sua taxa de comissão — e pode entrar diretamente.',
+      inviteLinksEmpty: 'Ainda não há links de convite ativos.',
+      inviteLinksTitle: 'Links de convite para vendedores',
+      metricCommission: 'Comissão',
+      inviteLinkUses: 'Usos',
+      metricCommissionEmpty: 'Acumula à medida que os pedidos chegam',
+      metricOrders: 'Pedidos atribuídos',
+      metricDeltaTitle: 'vs anterior',
+      metricOrdersEmpty: 'Nenhum ainda',
+      metricSellers: 'Vendedores',
+      metricSellersEmpty: 'Convide o seu primeiro vendedor',
+      metricSellersPending: '{{count}} pendente(s)',
+      metricVisits: 'Visitas',
+      metricVisitsEmpty: 'Compartilhe seu link para começar',
+      monetizationSectionTitle: 'Monetização',
+      nextStepCurateBody:
+        'Escolha o que os compradores veem primeiro — as páginas iniciais com curadoria convertem melhor.',
+      nextStepCurateCta: 'Curar página inicial',
+      nextStepCurateTitle: 'Destaque os seus primeiros produtos',
+      nextStepRecruitBody: 'Crie um link de convite e compartilhe-o onde sua comunidade já está.',
+      nextStepRecruitCta: 'Convidar vendedores',
+      nextStepRecruitTitle: 'Recrute o seu primeiro vendedor',
+      nextStepReviewBody: 'Os vendedores aguardam sua decisão antes de poderem começar a vender.',
+      nextStepReviewTitle: '{{count}} candidatura(s) de vendedor aguardando',
+      nextStepReviewCta: 'Revisar vendedores',
+      performanceTitle: 'Desempenho',
+      shareDescriptionShort: '— convide compradores e comunidades',
+      startModeInvite: 'Curadoria — convidar vendedores',
+      startModeInviteDesc:
+        'Você escolhe cada vendedor e produto. Publique primeiro, depois recrute com links de convite.',
+      startModeOpen: 'Aberto — os vendedores entram por conta própria',
+      startModeOpenDesc:
+        'Os vendedores se candidatam por conta própria e o catálogo é preenchido a partir da rede. O caminho mais rápido para um mercado abastecido.',
       applicationReviewWorkspace: 'Área de revisão de candidaturas de vendedores',
       filterAll: 'Todos',
       filterPending: 'Pendentes',
@@ -3246,6 +3450,12 @@ export const pt: PartialTranslationResource = {
       saveSuccess: 'Configurações do Marketplace salvas',
       archiveAction: 'Mercado de arquivamento',
       curation: {
+        allFeaturedBadge: 'Tudo em destaque',
+        allListingsFeatured: 'Todos os produtos elegíveis já estão em destaque.',
+        clickToFeature: '+ Destacar',
+        noImage: 'Sem imagem',
+        noListingCandidates:
+          'Ainda não há produtos para destacar — eles aparecem aqui assim que os vendedores aprovados tiverem itens à venda.',
         title: 'Curadoria da página inicial',
         add: 'Adicionar',
         loading: 'Carregando curadoria...',
@@ -4795,6 +5005,8 @@ export const pt: PartialTranslationResource = {
       requiredMissing: '{{field}} is required',
     },
     quickCreate: {
+      tagsTitle: 'Tags',
+      tagsPlaceholder: 'Adicionar uma tag...',
       title: 'Criação rápida',
       subtitle: 'Envie fotos e deixe a IA fazer o resto',
       stepPhotos: 'Fotos',
@@ -5239,6 +5451,8 @@ export const pt: PartialTranslationResource = {
     barcodePlaceholder: 'UPC, EAN, ISBN...',
     barcodeHelper: 'Código de barras do produto para rastreamento de estoque',
     digital: {
+      uploadCancelled: 'Envio cancelado',
+      uploadProgress: 'Progresso do envio',
       title: 'Arquivos digitais',
       description: 'Envie arquivos que os compradores receberão após a compra.',
       uploadFiles: 'Clique para enviar arquivos',
@@ -5510,6 +5724,7 @@ export const pt: PartialTranslationResource = {
     },
   },
   shipping: {
+    noShippingOptionsConfigured: 'Nenhuma opção de envio está configurada para este endereço.',
     shippingProfiles: 'Perfis de envio',
     shippingOptions: 'opção(ões) de envio',
     upgradeToProfiles: 'Atualizar para perfis de envio',
@@ -5916,6 +6131,7 @@ export const pt: PartialTranslationResource = {
     copyCaseId: 'Copiar ID do caso',
   },
   admin: {
+    statusDraft: 'Rascunho',
     title: 'Admin da loja',
     nav: {
       dashboard: 'Painel',
@@ -6544,6 +6760,8 @@ export const pt: PartialTranslationResource = {
         'Alterar a senha desconecta todas as sessões do administrador, incluindo esta.',
     },
     integrations: {
+      aiTextRoute: 'IA de texto',
+      aiVisionRoute: 'IA de visão',
       title: 'Integrações',
       subtitle: 'Gerencie canais de notificação, assistente de IA e webhooks',
       tabPayments: 'Pagamentos',
@@ -7415,6 +7633,10 @@ export const pt: PartialTranslationResource = {
       defaultArchiveError: 'A vitrine padrão não pode ser arquivada.',
     },
     guestCheckout: {
+      pgpKeySave: 'Gerenciar proteção de endereço',
+      pgpKeyDescription:
+        'Os endereços de pedidos físicos são criptografados no navegador do comprador. Crie e faça backup da chave de recuperação da loja em “Pagamentos da loja”.',
+      pgpKeyTitle: '🔒 Criptografia de endereço PGP',
       title: 'Check-out de convidado',
       description: 'Permita que compradores anônimos paguem com criptomoedas sem criar uma conta.',
       loadError: 'Falha ao carregar as configurações',
@@ -8658,6 +8880,13 @@ export const pt: PartialTranslationResource = {
     },
   },
   system: {
+    rpc: {
+      connected: 'Conectado',
+      disconnected: 'Desconectado',
+      noneConfigured:
+        'Nenhum RPC de pagamento configurado. Vá em Configurações → Pagamentos para continuar.',
+      title: 'Status do RPC de pagamento',
+    },
     network: {
       title: 'Rede e Privacidade',
       connectivity: 'Conectividade',
@@ -9032,6 +9261,8 @@ export const pt: PartialTranslationResource = {
       'Cada clique extrai um instantâneo ao vivo de sua loja. CSVs abrem diretamente no Excel, Numbers e Planilhas Google; JSON é melhor para scripts de migração. Nunca enviamos esses arquivos por e-mail para lugar nenhum — o download permanece neste dispositivo.',
   },
   guestCheckout: {
+    noPaymentMethodsAvailable:
+      'Nenhum método de pagamento disponível. O vendedor ainda não configurou as criptomoedas aceitas.',
     cartEmpty: 'Seu carrinho está vazio',
     cartEmptyHint: 'Navegue pela loja e adicione itens para começar',
     reviewCart: 'Revise seu carrinho ({{count}} {{itemWord}})',
@@ -9259,8 +9490,29 @@ export const pt: PartialTranslationResource = {
     },
   },
   collectibles: {
+    experience: {
+      assurances: {
+        title: 'Garantias de custódia',
+      },
+      ops: {
+        metricsAria: 'Métricas de custódia',
+      },
+      summary: {
+        catalogTotal: 'Total de itens',
+        custodyReady: 'Custódia pronta',
+        myHoldings: 'Meus ativos',
+      },
+      technicalDetails: 'Detalhes técnicos',
+      trust: {
+        title: 'Por que você pode confiar nisso',
+      },
+    },
     title: 'Cartões colecionáveis',
     catalog: {
+      heroEyebrow: 'Colecionáveis',
+      storefrontSubtitle: 'Colecionáveis físicos verificados com registros de custódia',
+      storefrontTitle: 'Catálogo de colecionáveis',
+      unnamedCard: 'Cartão sem nome',
       title: 'Catálogo de cartões hospedados',
       navAria: 'Visualizações de colecionáveis',
       tabMyCards: 'Meus cartões',
@@ -9292,6 +9544,9 @@ export const pt: PartialTranslationResource = {
       redeemableYes: 'Resgate disponível',
       redeemableNo: 'Resgate indisponível',
       display: {
+        gradedCollectible: 'Classificado {{grade}}',
+        serialCard: 'Nº de série {{serial}}',
+        referenceCard: 'Referência {{reference}}',
         m2Wilson001: {
           name: '1909-11 T206 Honus Wagner (demonstração)',
         },

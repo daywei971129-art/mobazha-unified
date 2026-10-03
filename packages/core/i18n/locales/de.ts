@@ -5,7 +5,85 @@
 import type { PartialTranslationResource } from '../types';
 
 export const de: PartialTranslationResource = {
+  adminDecrypt: {
+    cancel: 'Abbrechen',
+    clearAndClose: 'Leeren und schließen',
+    decryptButton: 'Adresse entschlüsseln',
+    decryptedSuccess: 'Adresse entschlüsselt (nur im Browser)',
+    decrypting: 'Wird entschlüsselt…',
+    decryptNow: 'Entschlüsseln',
+    decryptionFailed:
+      'Entschlüsselung fehlgeschlagen: {{message}}. Stellen Sie sicher, dass Sie den richtigen privaten Schlüssel verwenden.',
+    encryptedNotice:
+      'Die Lieferadresse ist verschlüsselt. Entsperren Sie sie mit Ihrer Wiederherstellungspassphrase (nur in diesem Browser).',
+    passphrasePlaceholder: 'Wiederherstellungspassphrase',
+    printLabel: 'Etikett drucken',
+    privateKeyHint:
+      'Geben Sie die Wiederherstellungspassphrase ein, die Sie beim Adressschutz erstellt haben. Sie wird nie an den Shop gesendet.',
+  },
+  marketplaceStarter: {
+    bannerSubtitle: 'Vom Betreiber hervorgehobene Angebote',
+    bannerTitle: 'Hervorgehobene Banner',
+    coldStart: {
+      becomeSeller: 'Bewerben Sie sich, um Verkäufer zu werden',
+      howItWorks1: 'Jede Bestellung bleibt bei dem von Ihnen gewählten Verkäufer.',
+      howItWorks2: 'Käuferschutz und sichere Zahlungen gelten für jeden Shop einzeln.',
+      howItWorks3: 'Verkäufer werden überprüft, bevor ihre Produkte hier erscheinen.',
+      howItWorksTitle: 'So funktioniert dieser Marktplatz',
+      inventoryPreparing: 'Das Sortiment wird vorbereitet',
+      inviteOnly: 'Dieser Marktplatz nimmt Verkäufer nur auf Einladung auf.',
+      notifyCta: 'Benachrichtigen Sie mich',
+      notifyDone: 'Sie stehen auf der Liste.',
+      notifyFailed:
+        'Das hat nicht funktioniert — überprüfen Sie die Adresse und versuchen Sie es erneut.',
+      notifyHint: 'Sie erhalten eine einzige E-Mail, sobald Produkte verfügbar sind. Kein Spam.',
+      notifyPlaceholder: 'you@example.com',
+      subtitle:
+        'Dieser Marktplatz steht noch ganz am Anfang. Schauen Sie bald wieder vorbei, um Angebote zu sehen.',
+    },
+    curatedSubtitle: 'Vom Betreiber ausgewählte Highlights',
+    defaultName: 'Marktplatz',
+    curatedTitle: 'Kuratierte Auswahl',
+    degraded: {
+      title: 'Wir konnten keine Angebote laden',
+      description:
+        'Beim Laden dieses Marktplatzes ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.',
+    },
+    errorTitle: 'Marktplatz nicht verfügbar',
+    errorDescription:
+      'Wir konnten diesen Marktplatz im Moment nicht laden. Bitte versuchen Sie es erneut.',
+    latestTitle: 'Neueste Angebote',
+    latestSubtitle: 'Frisch von zugelassenen Verkäufern',
+    loadingDescription: 'Kuratierte Auswahl wird vorbereitet…',
+    loadingTitle: 'Marktplatz wird geladen',
+    popularSubtitle: 'Im Trend auf diesem Marktplatz',
+    popularTitle: 'Beliebte Auswahl',
+    searchPlaceholder: 'Diesen Marktplatz durchsuchen',
+    sparse: {
+      notice:
+        'Verfügbare Angebote werden angezeigt, während dieser Marktplatz seine Auswahl zusammenstellt.',
+    },
+    storesSubtitle: 'Kaufen Sie direkt bei ausgewählten Verkäufern ein',
+    storesTitle: 'Empfohlene Shops',
+    trustCopy:
+      'Jede Bestellung bleibt bei dem von Ihnen gewählten Verkäufer. Käuferschutz und sichere Zahlungen gelten für jeden Shop einzeln.',
+    visitStore: 'Shop besuchen',
+  },
+  sovereign: {
+    privacyHintDesc:
+      'Ihr Shop sendet keine externen Netzwerkanfragen. Für maximale Privatsphäre greifen Sie über eine Tor-.onion-Adresse oder eine I2P-Eepsite darauf zu. Konfigurieren Sie die Zahlungsendpunkte unter Einstellungen → Zahlungen.',
+    privacyHint: 'Datenschutzhinweis',
+    setup: {
+      regionTitle: 'Standort',
+      regionDesc: 'Legen Sie Ihr Land für Versandberechnungen fest',
+    },
+  },
   common: {
+    connecting: 'Verbindung wird hergestellt...',
+    loadingInterrupted: 'Ladevorgang unterbrochen',
+    or: 'oder',
+    slowNetworkRetry: 'Die Verbindung ist langsam. Es wird erneut versucht…',
+    unexpectedError: 'Etwas ist schiefgelaufen',
     loading: 'Laden...',
     redirecting: 'Weiterleitung...',
     error: 'Fehler',
@@ -159,6 +237,7 @@ export const de: PartialTranslationResource = {
     priceRequired: 'Preis ist erforderlich',
   },
   nav: {
+    back: 'Zurück',
     home: 'Startseite',
     market: 'Markt',
     search: 'Suchen',
@@ -195,6 +274,8 @@ export const de: PartialTranslationResource = {
     lastUpdated: 'Aktualisiert {{date}}',
   },
   login: {
+    signInWithMobazha: 'Mit Mobazha-Konto anmelden',
+    socialLoginNotAdmin: 'Dieses Konto hat keinen Administratorzugriff auf diesen Shop.',
     title: 'Mobazha',
     subtitle: 'Dezentraler Marktplatz',
     hostedMode: 'Hosted-Modus',
@@ -337,6 +418,7 @@ export const de: PartialTranslationResource = {
     collectiblesDesc: 'Tokenisierte Karten, die im Hub aufbewahrt werden – jederzeit einlösbar',
   },
   product: {
+    storeOffline: 'Dieser Shop ist derzeit offline. Bitte versuchen Sie es später erneut.',
     title: 'Titel',
     description: 'Beschreibung',
     price: 'Preis',
@@ -1657,6 +1739,10 @@ export const de: PartialTranslationResource = {
       claimRefund: 'Rückerstattung beanspruchen',
     },
     fulfillment: {
+      carrier: 'Versanddienstleister',
+      copyTracking: 'Sendungsnummer kopieren',
+      packageShipped: 'Paket versandt',
+      trackingNumber: 'Sendungsnummer',
       title: 'Lieferantenerfüllung',
       loading: 'Erfüllungsstatus wird geladen...',
       supplierCost: 'Lieferantenkosten',
@@ -2225,6 +2311,11 @@ export const de: PartialTranslationResource = {
         'Das sieht aus wie eine Bitcoin (BTC)-Adresse. BCH verwendet normalerweise Bitcoincash: oder ältere Formate – überprüfen Sie dies vor dem Speichern noch einmal.',
     },
     accountBinding: {
+      closeTabHint:
+        'Konto erfolgreich verknüpft. Sie können diese Registerkarte schließen und zu Ihrem Shop zurückkehren.',
+      standaloneConnectDesc:
+        'Verbinden Sie Ihr Telegram-, Discord- oder Google-Konto, um die schnelle Anmeldung über soziale Konten zu aktivieren. Melden Sie sich zuerst bei der Mobazha-Plattform an, um Ihre verknüpften Konten zu verwalten.',
+      standaloneSocialTitle: 'Verknüpfung von Social-Media-Konten',
       title: 'Verknüpfte Konten',
       description: 'Verwalten Sie Ihre Anmeldemethoden',
       linked: 'Verknüpfte Konten',
@@ -2781,6 +2872,32 @@ export const de: PartialTranslationResource = {
     },
   },
   marketplace: {
+    invite: {
+      accept: 'Als Verkäufer beitreten',
+      acceptedApproved: 'Sie sind dem Marktplatz beigetreten.',
+      acceptedPending: 'Anfrage gesendet — der Betreiber wird sie prüfen.',
+      acceptFailed:
+        'Der Beitritt über diesen Link ist fehlgeschlagen. Bitte versuchen Sie es erneut.',
+      accepting: 'Beitritt läuft…',
+      approvalLabel: 'Beitritt',
+      autoApprove: 'Sofort genehmigt',
+      commissionLabel: 'Betreiberprovision',
+      exhausted: 'Dieser Link ist nicht mehr gültig.',
+      goToSellPage: 'Meine Teilnahme verwalten',
+      headline: 'Einladung zum Verkauf auf',
+      invalidBody:
+        'Der Link ist möglicherweise abgelaufen, wurde widerrufen oder hat sein Nutzungslimit erreicht. Bitten Sie den Marktplatzbetreiber um einen neuen Link.',
+      invalidTitle: 'Dieser Einladungslink ist ungültig',
+      loadFailedBody: 'Bitte versuchen Sie es gleich noch einmal.',
+      loadFailedTitle: 'Diese Einladung konnte nicht geladen werden',
+      loading: 'Ihre Einladung wird überprüft…',
+      loginToAccept: 'Melden Sie sich an, um die Einladung anzunehmen',
+      manualReview: 'Vom Betreiber überprüft',
+      resultApproved: 'Sie sind dabei! Ihr Shop ist jetzt Mitglied.',
+      resultPending: 'Anfrage gesendet. Der Betreiber wird sie prüfen.',
+      termsNote:
+        'Die Provision wird auf Bestellungen erhoben, die der Marktplatz Ihnen vermittelt, und von Ihrem Erlös abgezogen. Durch den Beitritt werden Ihr Shop, Ihre Angebote oder Ihre Gelder niemals an den Betreiber übertragen.',
+    },
     title: 'Community-Marktplätze',
     subtitle:
       'Entdecken und treten Sie Community-Marktplätzen bei. Kaufen Sie bei vertrauenswürdigen Verkäufern oder werden Sie selbst Verkäufer.',
@@ -2811,6 +2928,10 @@ export const de: PartialTranslationResource = {
       searchPlaceholder: 'Mitglieder suchen...',
     },
     sell: {
+      marketCommissionLabel: 'Betreiberprovision',
+      marketCommissionNone: '0%',
+      marketCommissionNote:
+        'Die Betreiberprovision wird auf Bestellungen erhoben, die dieser Marktplatz Ihnen vermittelt, und von Ihrem Erlös abgezogen. Der angezeigte Satz ist der veröffentlichte Satz; Änderungen erfordern eine erneute Veröffentlichung durch den Betreiber.',
       backToMarketplace: 'Zurück zum Marktplatz',
       title: 'Verkäufer werden',
       subtitle:
@@ -2986,6 +3107,25 @@ export const de: PartialTranslationResource = {
         statusNextSuspended:
           'Als Nächstes: Kontaktieren Sie den Support oder die Marktbetreiber – Ihr Verkäuferzugriff ist pausiert.',
         workspace: {
+          activeSection: 'Aktiv',
+          cardLocation: 'Standort',
+          cardChecked: 'Geprüft',
+          countsAria: 'Verwahrungsstatistik',
+          currentStatus: 'Aktueller Stand',
+          emptySubmitCta: 'Eine Karte einreichen',
+          historySection: 'Verlauf',
+          lastUpdated: 'Zuletzt aktualisiert',
+          listingBindingsBlockedDesc:
+            'Fügen Sie diesen Artikel einem Angebot hinzu, bevor Sie fortfahren.',
+          listingBindingsBlockedTitle: 'Angebotsverknüpfung nicht verfügbar',
+          showAllCases: 'Alle {{count}} Fälle anzeigen',
+          nextActionSection: 'Nächster Schritt',
+          submitIntro: 'Reichen Sie eine Karte zur Verwahrung und Auflistung ein.',
+          showFewerCases: 'Weniger anzeigen',
+          tabSubmit: 'Einreichen',
+          tabTrack: 'Verfolgen',
+          trackIntro: 'Verfolgen Sie den Verwahrungs- und Angebotsstatus Ihrer Karten.',
+          viewAria: 'Arbeitsbereichsansichten',
           subtitle:
             'Reichen Sie Note, Zertifizierung, Inhaberbrieftasche und Vorder-/Rückseiten-Beweis-URLs zur Prüfung durch den Kurator ein. Genehmigte Karten können sofort gelistet werden – kein Vorverkauf postfrisch.',
           lifecycleAria: 'Lebenszyklus der Kartenübermittlung',
@@ -3037,6 +3177,79 @@ export const de: PartialTranslationResource = {
       },
     },
     operator: {
+      attributionConversionTitle: 'Conversion',
+      addPositioningCta: '+ Kurzen Positionierungssatz für Käufer hinzufügen',
+      attributionSource: 'Quelle',
+      attributionOrders: 'Zugeordnete Bestellungen',
+      attributionSourceDirect: 'Direkt',
+      attributionSourcesTitle: 'Nach Quelle der Weitergabe',
+      commissionRate: 'Betreiberprovision',
+      attributionWindowLabel: 'Zeitspanne',
+      commissionRateHint:
+        'Wird Verkäufern für Bestellungen berechnet, die dieser Marktplatz vermittelt. Gilt nach der erneuten Veröffentlichung für neue Bestellungen; Verkäufer sehen den festgelegten Satz, bevor sie beitreten.',
+      commissionRateInvalid:
+        'Geben Sie einen Satz zwischen 0 und 30 ein (bis zu 2 Nachkommastellen).',
+      earningsCommission: 'Provision',
+      earningsCurrency: 'Währung',
+      earningsCurrentRate: 'Aktueller Satz',
+      earningsEmpty: 'In diesem Zeitraum gibt es noch keine zugeordneten Bestellungen.',
+      earningsEstimateNote:
+        'Die Zahlen sind Schätzungen, die beim Checkout erfasst und bei der Abrechnung bestätigt werden. Es handelt sich noch nicht um ein auszahlbares Guthaben.',
+      earningsGross: 'Brutto',
+      earningsLoadFailed: 'Die Provisionsaufstellung konnte nicht geladen werden.',
+      earningsLoading: 'Provisionseinnahmen werden geladen…',
+      earningsRatePendingPublish: '{{percent}} % nach der nächsten Veröffentlichung',
+      earningsOrders: 'Bestellungen',
+      inviteLinkAutoApprove: 'Verkäufer über diesen Link automatisch genehmigen',
+      earningsTitle: 'Provisionseinnahmen',
+      inviteLinkCopied: 'Link kopiert.',
+      inviteLinkCreated: 'Einladungslink erstellt.',
+      inviteLinkCreate: 'Link erstellen',
+      inviteLinkCreatedCopied: 'Einladungslink erstellt und kopiert.',
+      inviteLinkCreateFailed: 'Der Einladungslink konnte nicht erstellt werden.',
+      inviteLinkMaxUses: 'Max. Verwendungen (0 = unbegrenzt)',
+      inviteLinkMaxUsesInvalid:
+        'Die maximale Anzahl der Verwendungen muss eine ganze Zahl zwischen 0 (unbegrenzt) und 10000 sein.',
+      inviteLinkModeAuto: 'Automatisch genehmigen',
+      inviteLinkModeReview: 'Manuelle Überprüfung',
+      inviteLinkRevoked: 'Einladungslink widerrufen.',
+      inviteLinkRevokeFailed: 'Der Link konnte nicht widerrufen werden.',
+      inviteLinksDescription:
+        'Teilen Sie einen Link in Ihrer Community, anstatt Verkäufer nacheinander einzuladen. Jeder, der ihn öffnet, sieht Ihre Marktplatzbedingungen — einschließlich Ihres Provisionssatzes — und kann direkt beitreten.',
+      inviteLinksEmpty: 'Noch keine aktiven Einladungslinks.',
+      inviteLinksTitle: 'Einladungslinks für Verkäufer',
+      metricCommission: 'Provision',
+      inviteLinkUses: 'Verwendungen',
+      metricCommissionEmpty: 'Fällt mit eingehenden Bestellungen an',
+      metricOrders: 'Zugeordnete Bestellungen',
+      metricDeltaTitle: 'ggü. Vorperiode',
+      metricOrdersEmpty: 'Noch keine',
+      metricSellers: 'Verkäufer',
+      metricSellersEmpty: 'Laden Sie Ihren ersten Verkäufer ein',
+      metricSellersPending: '{{count}} ausstehend',
+      metricVisits: 'Besuche',
+      metricVisitsEmpty: 'Teilen Sie Ihren Link, um zu starten',
+      monetizationSectionTitle: 'Monetarisierung',
+      nextStepCurateBody:
+        'Wählen Sie aus, was Käufer zuerst sehen — kuratierte Homepages konvertieren besser.',
+      nextStepCurateCta: 'Homepage kuratieren',
+      nextStepCurateTitle: 'Präsentieren Sie Ihre ersten Produkte',
+      nextStepRecruitBody:
+        'Erstellen Sie einen Einladungslink und teilen Sie ihn dort, wo Ihre Community bereits aktiv ist.',
+      nextStepRecruitCta: 'Verkäufer einladen',
+      nextStepRecruitTitle: 'Rekrutieren Sie Ihren ersten Verkäufer',
+      nextStepReviewBody:
+        'Verkäufer warten auf Ihre Entscheidung, bevor sie in den Verkauf gehen können.',
+      nextStepReviewTitle: 'Ausstehende Verkäuferbewerbungen: {{count}}',
+      nextStepReviewCta: 'Verkäufer prüfen',
+      performanceTitle: 'Leistung',
+      shareDescriptionShort: '— Laden Sie Käufer und Communitys ein',
+      startModeInvite: 'Kuratiert — Laden Sie Verkäufer ein',
+      startModeInviteDesc:
+        'Sie wählen jeden Verkäufer und jedes Produkt aus. Zuerst veröffentlichen, dann mit Einladungslinks rekrutieren.',
+      startModeOpen: 'Offen — Verkäufer treten selbst bei',
+      startModeOpenDesc:
+        'Verkäufer bewerben sich selbstständig und der Katalog füllt sich aus dem Netzwerk. Der schnellste Weg zu einem gefüllten Marktplatz.',
       applicationReviewWorkspace: 'Arbeitsbereich zur Prüfung von Verkäuferanträgen',
       filterAll: 'Alle',
       filterPending: 'In Prüfung',
@@ -3294,6 +3507,12 @@ export const de: PartialTranslationResource = {
       saveFailedTitle: 'Einstellungen konnten nicht gespeichert werden',
       archiveConfirm: 'Archiv-Marktplatz',
       curation: {
+        allFeaturedBadge: 'Alle hervorgehoben',
+        allListingsFeatured: 'Jedes berechtigte Produkt ist bereits hervorgehoben.',
+        clickToFeature: '+ Hervorheben',
+        noImage: 'Kein Bild',
+        noListingCandidates:
+          'Noch keine Produkte zum Hervorheben — sie erscheinen hier, sobald zugelassene Verkäufer Artikel im Angebot haben.',
         title: 'Kuration der Homepage',
         add: 'Hinzufügen',
         loadFailed: 'Kurationsdaten konnten nicht geladen werden. Bitte versuchen Sie es erneut.',
@@ -4864,6 +5083,8 @@ export const de: PartialTranslationResource = {
       requiredMissing: '{{field}} is required',
     },
     quickCreate: {
+      tagsTitle: 'Tags',
+      tagsPlaceholder: 'Tag hinzufügen...',
       title: 'Schnellerstellung',
       subtitle: 'Fotos hochladen — den Rest erledigt die KI',
       stepPhotos: 'Fotos',
@@ -5310,6 +5531,8 @@ export const de: PartialTranslationResource = {
     barcodePlaceholder: 'UPC, EAN, ISBN...',
     barcodeHelper: 'Produkt-Barcode für Bestandsverfolgung',
     digital: {
+      uploadCancelled: 'Upload abgebrochen',
+      uploadProgress: 'Fortschritt beim Hochladen',
       title: 'Digitale Dateien',
       description: 'Laden Sie Dateien hoch, die Käufer nach dem Kauf erhalten.',
       uploadFiles: 'Klicken Sie zum Hochladen',
@@ -5590,6 +5813,7 @@ export const de: PartialTranslationResource = {
     },
   },
   shipping: {
+    noShippingOptionsConfigured: 'Für diese Adresse sind keine Versandoptionen konfiguriert.',
     shippingProfiles: 'Versandprofile',
     shippingOptions: 'Versandoption(en)',
     upgradeToProfiles: 'Auf Versandprofile upgraden',
@@ -6001,6 +6225,7 @@ export const de: PartialTranslationResource = {
     copyCaseId: 'Fall-ID kopieren',
   },
   admin: {
+    statusDraft: 'Entwurf',
     title: 'Shop-Admin',
     nav: {
       dashboard: 'Dashboard',
@@ -6633,6 +6858,8 @@ export const de: PartialTranslationResource = {
         'Passwort geändert. Melden Sie sich erneut mit Ihrem neuen Passwort an.',
     },
     integrations: {
+      aiTextRoute: 'Text-KI',
+      aiVisionRoute: 'Vision-KI',
       title: 'Integrationen',
       subtitle: 'Benachrichtigungskanäle, KI-Assistent und Webhooks verwalten',
       tabPayments: 'Zahlungen',
@@ -7511,6 +7738,10 @@ export const de: PartialTranslationResource = {
       defaultArchiveError: 'Die Standard-Storefront kann nicht archiviert werden.',
     },
     guestCheckout: {
+      pgpKeySave: 'Adressschutz verwalten',
+      pgpKeyDescription:
+        'Adressen physischer Bestellungen werden im Browser des Käufers verschlüsselt. Erstellen und sichern Sie den Wiederherstellungsschlüssel des Shops unter „Shop-Zahlungen“.',
+      pgpKeyTitle: '🔒 PGP-Adressverschlüsselung',
       title: 'Gastkasse',
       description:
         'Ermöglichen Sie anonymen Käufern, mit Kryptowährung zu bezahlen, ohne ein Konto zu erstellen.',
@@ -8773,6 +9004,13 @@ export const de: PartialTranslationResource = {
     },
   },
   system: {
+    rpc: {
+      connected: 'Verbunden',
+      disconnected: 'Nicht verbunden',
+      noneConfigured:
+        'Kein Zahlungs-RPC konfiguriert. Gehen Sie zu Einstellungen → Zahlungen, um fortzufahren.',
+      title: 'Zahlungs-RPC-Status',
+    },
     network: {
       title: 'Netzwerk & Datenschutz',
       connectivity: 'Verbindung',
@@ -9148,6 +9386,8 @@ export const de: PartialTranslationResource = {
       'Mit jedem Klick wird ein Live-Schnappschuss aus Ihrem Shop erstellt. CSVs werden direkt in Excel, Numbers und Google Sheets geöffnet; JSON eignet sich am besten für Migrationsskripte. Wir versenden diese Dateien niemals per E-Mail – der Download bleibt auf diesem Gerät.',
   },
   guestCheckout: {
+    noPaymentMethodsAvailable:
+      'Keine Zahlungsmethoden verfügbar. Der Verkäufer hat noch keine akzeptierten Kryptowährungen konfiguriert.',
     cartEmpty: 'Ihr Warenkorb ist leer',
     cartEmptyHint: 'Durchsuchen Sie den Shop und fügen Sie Artikel hinzu, um loszulegen',
     reviewCart: 'Überprüfen Sie Ihren Warenkorb ({{count}} {{itemWord}})',
@@ -9378,10 +9618,31 @@ export const de: PartialTranslationResource = {
     },
   },
   collectibles: {
+    experience: {
+      assurances: {
+        title: 'Verwahrungsgarantien',
+      },
+      ops: {
+        metricsAria: 'Verwahrungskennzahlen',
+      },
+      summary: {
+        catalogTotal: 'Artikel gesamt',
+        custodyReady: 'Bereit zur Verwahrung',
+        myHoldings: 'Meine Bestände',
+      },
+      technicalDetails: 'Technische Details',
+      trust: {
+        title: 'Warum Sie dem vertrauen können',
+      },
+    },
     title: 'Sammelkarten',
     subtitle:
       'Im Umlauf befindliche digitale Titelkarten mit Quell- oder Hubverwahrung. Gewöhnliche physische Angebote auf dem Markt werden hier nicht angezeigt, es sei denn, sie sind tokenisiert.',
     catalog: {
+      heroEyebrow: 'Sammlerstücke',
+      storefrontSubtitle: 'Verifizierte physische Sammlerstücke mit Verwahrungsnachweisen',
+      storefrontTitle: 'Katalog der Sammlerstücke',
+      unnamedCard: 'Unbenannte Karte',
       custodyCatalogTitle: 'Depotkatalog',
       title: 'Katalog gehosteter Karten',
       custodyCatalogSubtitle:
@@ -9406,6 +9667,9 @@ export const de: PartialTranslationResource = {
       redeemableYes: 'Einlösung möglich',
       backToMarketplace: 'Zurück zum kuratierten Markt',
       display: {
+        gradedCollectible: 'Note {{grade}}',
+        serialCard: 'Seriennr. {{serial}}',
+        referenceCard: 'Referenz {{reference}}',
         m2Wilson001: {
           name: '1909-11 T206 Honus Wagner (Demo)',
         },

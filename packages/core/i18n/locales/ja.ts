@@ -5,7 +5,83 @@
 import type { PartialTranslationResource } from '../types';
 
 export const ja: PartialTranslationResource = {
+  adminDecrypt: {
+    cancel: 'キャンセル',
+    clearAndClose: '消去して閉じる',
+    decryptButton: '住所を復号する',
+    decryptedSuccess: '住所を復号しました（このブラウザ内のみ）',
+    decrypting: '復号しています…',
+    decryptNow: '復号する',
+    decryptionFailed:
+      '復号に失敗しました：{{message}}。正しい秘密鍵を使用していることを確認してください。',
+    encryptedNotice:
+      '配送先住所は暗号化されています。リカバリパスフレーズでロックを解除してください（このブラウザ内のみ）。',
+    passphrasePlaceholder: 'リカバリパスフレーズ',
+    printLabel: 'ラベルを印刷する',
+    privateKeyHint:
+      '住所保護の設定時に作成したリカバリパスフレーズを入力してください。ストアには送信されません。',
+  },
+  marketplaceStarter: {
+    bannerSubtitle: 'オペレーターが注目する商品',
+    bannerTitle: '注目のバナー',
+    coldStart: {
+      becomeSeller: '販売者として申し込む',
+      howItWorks1: 'すべての注文は、選んだ販売者との間で完結します。',
+      howItWorks2: '購入者保護と安全な支払いは、ストアごとに適用されます。',
+      howItWorks3: '販売者の審査が完了すると、その商品がここに表示されます。',
+      howItWorksTitle: 'このマーケットプレイスの仕組み',
+      inventoryPreparing: '品揃えを準備しています',
+      inviteOnly: 'このマーケットプレイスは招待制で販売者を募集しています。',
+      notifyCta: '通知を受け取る',
+      notifyDone: '通知リストに登録されました。',
+      notifyFailed: '送信できませんでした。メールアドレスを確認して、もう一度お試しください。',
+      notifyHint: '商品が公開されたら、メールを1通だけお送りします。スパムは送りません。',
+      notifyPlaceholder: 'you@example.com',
+      subtitle:
+        'このマーケットプレイスはまだ始まったばかりです。商品は後ほどあらためてご確認ください。',
+    },
+    curatedSubtitle: 'オペレーターが選んだ注目商品',
+    defaultName: 'マーケットプレイス',
+    curatedTitle: '厳選されたおすすめ',
+    degraded: {
+      title: '商品を読み込めませんでした',
+      description:
+        'このマーケットプレイスの読み込み中に問題が発生しました。もう一度お試しください。',
+    },
+    errorTitle: 'マーケットプレイスは利用できません',
+    errorDescription: '現在、このマーケットプレイスを読み込めません。もう一度お試しください。',
+    latestTitle: '新着商品',
+    latestSubtitle: '承認済みの販売者から届いたばかりの商品',
+    loadingDescription: '厳選コンテンツを準備しています…',
+    loadingTitle: 'マーケットプレイスを読み込んでいます',
+    popularSubtitle: 'このマーケットプレイスでのトレンド',
+    popularTitle: '人気のおすすめ',
+    searchPlaceholder: 'このマーケットプレイスを検索',
+    sparse: {
+      notice:
+        'このマーケットプレイスが注目のおすすめを準備している間、現在利用可能な商品を表示しています。',
+    },
+    storesSubtitle: '厳選された販売者から直接お買い物',
+    storesTitle: '注目のストア',
+    trustCopy:
+      'すべての注文は、選んだ販売者との間で完結します。購入者保護と安全な支払いは、ストアごとに適用されます。',
+    visitStore: 'ストアを見る',
+  },
+  sovereign: {
+    privacyHintDesc:
+      'ストアは外部ネットワークへのリクエストを一切行いません。プライバシーを最大限に確保するには、Tor の .onion アドレスまたは I2P の eepsite からアクセスしてください。支払いエンドポイントは 設定 → 支払い で設定します。',
+    privacyHint: 'プライバシーに関するお知らせ',
+    setup: {
+      regionTitle: '場所',
+      regionDesc: '配送料の計算に使用する国を設定してください',
+    },
+  },
   common: {
+    connecting: '接続中…',
+    loadingInterrupted: '読み込みが中断されました',
+    or: 'または',
+    slowNetworkRetry: '接続が遅くなっています。再試行しています…',
+    unexpectedError: '問題が発生しました',
     loading: '読み込み中...',
     redirecting: 'リダイレクト中...',
     error: 'エラー',
@@ -159,6 +235,7 @@ export const ja: PartialTranslationResource = {
     priceRequired: '価格は必須です',
   },
   nav: {
+    back: '戻る',
     home: 'ホーム',
     market: 'マーケット',
     search: '検索',
@@ -194,6 +271,8 @@ export const ja: PartialTranslationResource = {
     lastUpdated: '{{date}} に更新',
   },
   login: {
+    signInWithMobazha: 'Mobazhaアカウントでサインイン',
+    socialLoginNotAdmin: 'このアカウントには、このストアへの管理者アクセス権がありません。',
     title: 'Mobazha',
     subtitle: '分散型マーケットプレイス',
     hostedMode: 'ホストモード',
@@ -335,6 +414,7 @@ export const ja: PartialTranslationResource = {
     collectiblesDesc: 'ハブに保持されるトークン化されたカード - いつでも引き換え可能',
   },
   product: {
+    storeOffline: 'このストアは現在オフラインです。しばらくしてからもう一度お試しください。',
     title: 'タイトル',
     description: '説明',
     price: '価格',
@@ -1598,6 +1678,10 @@ export const ja: PartialTranslationResource = {
       claimRefund: '返金を請求',
     },
     fulfillment: {
+      carrier: '配送業者',
+      copyTracking: '追跡番号をコピー',
+      packageShipped: '発送完了',
+      trackingNumber: '追跡番号',
       title: 'サプライヤーの履行',
       loading: 'フルフィルメント ステータスを読み込んでいます...',
       supplierCost: 'サプライヤーコスト',
@@ -2161,6 +2245,10 @@ export const ja: PartialTranslationResource = {
         'これはビットコイン (BTC) アドレスのように見えます。 BCH は通常、bitcoinCash: またはレガシー形式を使用します。保存する前に再確認してください。',
     },
     accountBinding: {
+      closeTabHint: 'アカウントを連携しました。このタブを閉じて、ストアに戻ってください。',
+      standaloneConnectDesc:
+        'Telegram、Discord、Google のアカウントを連携すると、ソーシャルログインをすばやく利用できます。連携済みのアカウントを管理するには、先に Mobazha プラットフォームにサインインしてください。',
+      standaloneSocialTitle: 'ソーシャルアカウントの連携',
       title: '連携アカウント',
       description: 'ログイン方法を管理します',
       linked: '連携済みアカウント',
@@ -2708,6 +2796,31 @@ export const ja: PartialTranslationResource = {
     },
   },
   marketplace: {
+    invite: {
+      accept: '販売者として参加する',
+      acceptedApproved: 'マーケットプレイスに参加しました。',
+      acceptedPending: 'リクエストが送信されました—オペレーターが確認します。',
+      acceptFailed: 'このリンクでは参加できませんでした。もう一度お試しください。',
+      accepting: '参加しています…',
+      approvalLabel: '参加方法',
+      autoApprove: 'すぐに承認されます',
+      commissionLabel: 'オペレーター手数料',
+      exhausted: 'この招待リンクは無効になりました。',
+      goToSellPage: '参加を管理する',
+      headline: '以下のマーケットプレイスでの販売に招待されています',
+      invalidBody:
+        '有効期限が切れているか、取り消されているか、使用回数の上限に達している可能性があります。マーケットプレイスのオペレーターに新しいリンクを依頼してください。',
+      invalidTitle: 'この招待リンクは有効ではありません',
+      loadFailedBody: 'しばらくしてから再度お試しください。',
+      loadFailedTitle: 'この招待を読み込めませんでした',
+      loading: '招待状を確認しています…',
+      loginToAccept: '招待を承諾するにはサインインしてください',
+      manualReview: 'オペレーターによる審査',
+      resultApproved: '参加が完了しました！ストアがメンバーになりました。',
+      resultPending: 'リクエストが送信されました。オペレーターが確認します。',
+      termsNote:
+        '手数料は、このマーケットプレイスから届いた注文について、売上から差し引かれます。参加しても、ストア、商品、資金がオペレーターに譲渡されることはありません。',
+    },
     title: 'コミュニティマーケットプレイス',
     subtitle:
       'コミュニティ主導のマーケットプレイスを発見して参加しましょう。信頼できる販売者から購入するか、販売者になれます。',
@@ -2737,6 +2850,10 @@ export const ja: PartialTranslationResource = {
       searchPlaceholder: 'メンバーを検索...',
     },
     sell: {
+      marketCommissionLabel: 'オペレーター手数料',
+      marketCommissionNone: '0%',
+      marketCommissionNote:
+        'オペレーター手数料は、このマーケットプレイスから届いた注文について、売上から差し引かれます。表示されているのは公開済みの料率です。変更するには、オペレーターが再公開する必要があります。',
       backToMarketplace: 'マーケットプレイスに戻る',
       title: '販売者になる',
       subtitle:
@@ -2900,6 +3017,25 @@ export const ja: PartialTranslationResource = {
         statusNextApprovedWithSubmissions:
           '次へ: 以下の採点カードの証拠を提出してください。承認後、リストを作成します。デジタル タイトルは購入者が支払う前ではなく、支払うときに発行されます。',
         workspace: {
+          activeSection: 'アクティブ',
+          cardLocation: '保管場所',
+          cardChecked: '確認済み',
+          countsAria: '保管件数',
+          currentStatus: '現在のステータス',
+          emptySubmitCta: 'カードを提出する',
+          historySection: '履歴',
+          lastUpdated: '最終更新',
+          listingBindingsBlockedDesc:
+            '続行する前に、リスティングにこのアイテムを追加してください。',
+          listingBindingsBlockedTitle: 'リスティングとの関連付けができません',
+          showAllCases: '{{count}}件の案件をすべて表示',
+          nextActionSection: '次のアクション',
+          submitIntro: 'カードを提出して、保管とリスティングを依頼します。',
+          showFewerCases: '表示を減らす',
+          tabSubmit: '提出',
+          tabTrack: '追跡',
+          trackIntro: 'カードの保管状況とリスティングのステータスを追跡します。',
+          viewAria: 'ワークスペースビュー',
           lifecycleAria: 'カード提出のライフサイクル',
           subtitle:
             '学芸員によるレビューのために、グレード、認定、所有者ウォレット、および表裏証拠の URL を提出します。承認されたカードはすぐにリストに掲載できますが、事前販売のミントはありません。',
@@ -2953,6 +3089,77 @@ export const ja: PartialTranslationResource = {
       step3Approval: '承認後、選択したグループがこのマーケットプレイスに表示されます',
     },
     operator: {
+      attributionConversionTitle: 'コンバージョン',
+      addPositioningCta: '+ 購入者に表示される紹介文を追加',
+      attributionSource: '流入元',
+      attributionOrders: 'アトリビューションされた注文',
+      attributionSourceDirect: 'ダイレクト',
+      attributionSourcesTitle: '共有元別',
+      commissionRate: 'オペレーター手数料',
+      attributionWindowLabel: '期間',
+      commissionRateHint:
+        'このマーケットプレイスから発生した注文について、販売者に請求されます。再公開後の新規注文から適用されます。販売者は参加前に、確定した料率を確認できます。',
+      commissionRateInvalid: '0〜30の料率を入力してください（小数点以下2桁まで）。',
+      earningsCommission: '手数料',
+      earningsCurrency: '通貨',
+      earningsCurrentRate: '現在の料率',
+      earningsEmpty: 'この期間にアトリビューションされた注文はまだありません。',
+      earningsEstimateNote:
+        '金額はチェックアウト時に記録された概算値で、決済時に確定します。まだ支払い可能な残高ではありません。',
+      earningsGross: '総額',
+      earningsLoadFailed: '収益明細を読み込めませんでした。',
+      earningsLoading: '収益を読み込んでいます…',
+      earningsRatePendingPublish: '次回の公開後は{{percent}}%',
+      earningsOrders: '注文',
+      inviteLinkAutoApprove: 'このリンクから販売者を自動承認する',
+      earningsTitle: '手数料収益',
+      inviteLinkCopied: 'リンクをコピーしました。',
+      inviteLinkCreated: '招待リンクが作成されました。',
+      inviteLinkCreate: 'リンクを作成',
+      inviteLinkCreatedCopied: '招待リンクが作成され、コピーされました。',
+      inviteLinkCreateFailed: '招待リンクを作成できませんでした。',
+      inviteLinkMaxUses: '最大使用回数（0 = 無制限）',
+      inviteLinkMaxUsesInvalid:
+        '最大使用回数は、0（無制限）から10000までの整数で指定してください。',
+      inviteLinkModeAuto: '自動承認',
+      inviteLinkModeReview: '手動審査',
+      inviteLinkRevoked: '招待リンクが取り消されました。',
+      inviteLinkRevokeFailed: 'リンクを取り消せませんでした。',
+      inviteLinksDescription:
+        '販売者を1人ずつ招待する代わりに、コミュニティでリンクを共有しましょう。リンクを開いた人には、手数料率を含むマーケットプレイスの条件が表示され、そのまま参加できます。',
+      inviteLinksEmpty: '有効な招待リンクはまだありません。',
+      inviteLinksTitle: '販売者招待リンク',
+      metricCommission: '手数料',
+      inviteLinkUses: '使用回数',
+      metricCommissionEmpty: '注文が入ると累積されます',
+      metricOrders: 'アトリビューションされた注文',
+      metricDeltaTitle: '前回比',
+      metricOrdersEmpty: 'まだ何もありません',
+      metricSellers: '販売者',
+      metricSellersEmpty: '最初の販売者を招待する',
+      metricSellersPending: '{{count}}件が承認待ち',
+      metricVisits: '訪問',
+      metricVisitsEmpty: 'リンクを共有してスタート',
+      monetizationSectionTitle: '収益化',
+      nextStepCurateBody:
+        '購入者が最初に見るものを選んでください。キュレーションされたホームページのコンバージョンが向上します。',
+      nextStepCurateCta: 'ホームページをキュレートする',
+      nextStepCurateTitle: '最初の商品を注目商品に設定する',
+      nextStepRecruitBody:
+        '招待リンクを作成して、コミュニティがすでに存在する場所で共有しましょう。',
+      nextStepRecruitCta: '販売者を招待する',
+      nextStepRecruitTitle: '最初の販売者を募集する',
+      nextStepReviewBody: '販売者は、販売を開始する前にあなたの決定を待っています。',
+      nextStepReviewTitle: '販売者の申請が{{count}}件、承認待ちです',
+      nextStepReviewCta: '販売者を審査する',
+      performanceTitle: 'パフォーマンス',
+      shareDescriptionShort: '—購入者やコミュニティを招待する',
+      startModeInvite: '厳選制 — 販売者を招待',
+      startModeInviteDesc:
+        'すべての販売者と商品をあなたが選びます。先に公開してから、招待リンクで募集します。',
+      startModeOpen: 'オープン制 — 販売者が自分で参加',
+      startModeOpenDesc:
+        '販売者が自分で申請し、カタログはネットワークから自動的に埋まっていきます。商品が揃ったマーケットプレイスを最短で作れる方法です。',
       applicationReviewWorkspace: '出品申請の審査ワークスペース',
       filterAll: 'すべて',
       filterPending: '審査待ち',
@@ -3196,6 +3403,12 @@ export const ja: PartialTranslationResource = {
       archiveSuccess: 'マーケットプレイスがアーカイブされました',
       saveFailedTitle: '設定を保存できませんでした',
       curation: {
+        allFeaturedBadge: 'すべて注目済み',
+        allListingsFeatured: '対象となるすべての商品は、すでに注目商品に設定されています。',
+        clickToFeature: '+ 注目に設定',
+        noImage: '画像なし',
+        noListingCandidates:
+          '注目に設定できる商品はまだありません。承認済みの販売者が商品を販売中にすると、ここに表示されます。',
         title: 'ホームページのキュレーション',
         add: '追加',
         addSuccess: '厳選アイテムを追加しました',
@@ -4716,6 +4929,8 @@ export const ja: PartialTranslationResource = {
       requiredMissing: '{{field}} は必須です',
     },
     quickCreate: {
+      tagsTitle: 'タグ',
+      tagsPlaceholder: 'タグを追加…',
       title: 'クイック作成',
       subtitle: '写真をアップロード、あとはAIにおまかせ',
       stepPhotos: '写真',
@@ -5151,6 +5366,8 @@ export const ja: PartialTranslationResource = {
     barcodePlaceholder: 'UPC、EAN、ISBN...',
     barcodeHelper: '在庫管理用の商品バーコード',
     digital: {
+      uploadCancelled: 'アップロードをキャンセルしました',
+      uploadProgress: 'アップロードの進行状況',
       title: 'デジタルファイル',
       description: '購入後に購入者が受け取るファイルをアップロードしてください。',
       uploadFiles: 'クリックしてアップロード',
@@ -5425,6 +5642,7 @@ export const ja: PartialTranslationResource = {
     },
   },
   shipping: {
+    noShippingOptionsConfigured: 'この住所には配送オプションが設定されていません。',
     shippingProfiles: '配送プロファイル',
     shippingOptions: '配送オプション',
     upgradeToProfiles: '配送プロファイルにアップグレード',
@@ -5825,6 +6043,7 @@ export const ja: PartialTranslationResource = {
     copyCaseId: 'ケースIDをコピーする',
   },
   admin: {
+    statusDraft: '下書き',
     title: 'ストア管理',
     nav: {
       dashboard: 'ダッシュボード',
@@ -6442,6 +6661,8 @@ export const ja: PartialTranslationResource = {
         'パスワードを変更すると、このセッションを含むすべての管理者セッションがサインアウトされます。',
     },
     integrations: {
+      aiTextRoute: 'テキストAI',
+      aiVisionRoute: 'ビジョンAI',
       title: '統合',
       subtitle: '通知チャネル、AIアシスタント、Webhookを管理',
       tabPayments: '支払い',
@@ -7302,6 +7523,10 @@ export const ja: PartialTranslationResource = {
       defaultArchiveError: 'デフォルトのストアフロントはアーカイブできません。',
     },
     guestCheckout: {
+      pgpKeySave: '住所保護を管理する',
+      pgpKeyDescription:
+        '物理商品の注文の配送先住所は、購入者のブラウザ上で暗号化されます。「店舗での支払い」からストアのリカバリーキーを作成し、バックアップしてください。',
+      pgpKeyTitle: '🔒 PGP住所暗号化',
       title: 'ゲストチェックアウト',
       description: '匿名の購入者がアカウントを作成せずに暗号通貨で支払うことを許可します。',
       loadError: '設定の読み込みに失敗しました',
@@ -8521,6 +8746,13 @@ export const ja: PartialTranslationResource = {
     },
   },
   system: {
+    rpc: {
+      connected: '接続済み',
+      disconnected: '未接続',
+      noneConfigured:
+        '支払いRPCが設定されていません。続行するには、設定 → 支払いに移動してください。',
+      title: '支払いRPCステータス',
+    },
     network: {
       title: 'ネットワークとプライバシー',
       connectivity: '接続方式',
@@ -8890,6 +9122,8 @@ export const ja: PartialTranslationResource = {
       'クリックするたびに、ストアからライブ スナップショットが取得されます。 CSV は Excel、Numbers、Google スプレッドシートで直接開きます。 JSON は移行スクリプトに最適です。これらのファイルをどこにも電子メールで送信することはありません。ダウンロードはこのデバイスに残ります。',
   },
   guestCheckout: {
+    noPaymentMethodsAvailable:
+      '利用可能な支払い方法がありません。販売者がまだ受け付ける暗号通貨を設定していません。',
     cartEmpty: 'カートは空です',
     cartEmptyHint: 'ストアを閲覧してアイテムを追加して始めましょう',
     reviewCart: 'カートを確認してください ({{count}} {{itemWord}})',
@@ -9117,10 +9351,31 @@ export const ja: PartialTranslationResource = {
     },
   },
   collectibles: {
+    experience: {
+      assurances: {
+        title: '保管に関する保証',
+      },
+      ops: {
+        metricsAria: '保管の指標',
+      },
+      summary: {
+        catalogTotal: '商品点数合計',
+        custodyReady: '保管準備完了',
+        myHoldings: '保有中のアイテム',
+      },
+      technicalDetails: '技術的な詳細',
+      trust: {
+        title: 'これを信頼できる理由',
+      },
+    },
     title: '収集可能なカード',
     subtitle:
       'ソースまたはハブの管理下で流通しているデジタル タイトル カード。市場の通常の物理的なリストは、トークン化されていない限り、ここには表示されません。',
     catalog: {
+      heroEyebrow: '収集品',
+      storefrontSubtitle: '保管記録つきの検証済み実物収集品',
+      storefrontTitle: '収集品カタログ',
+      unnamedCard: '名称未設定のカード',
       custodyCatalogSubtitle:
         '流通しているデジタル タイトル カードを閲覧します。 My カードのウォレットに接続すると、保有しているタイトルが表示されます。すべての市場上場がトークン化されているわけではありません。',
       title: 'ホスト型カードのカタログ',
@@ -9152,6 +9407,9 @@ export const ja: PartialTranslationResource = {
       viewCustodyCta: '保管証明を表示する',
       redeemableYes: '引き換え可能',
       display: {
+        gradedCollectible: 'グレード{{grade}}',
+        serialCard: 'シリアル番号{{serial}}',
+        referenceCard: '参照番号{{reference}}',
         m2Wilson001: {
           name: '1909-11 T206 ホーナス ワーグナー (デモ)',
         },
