@@ -28,6 +28,7 @@ import { defaultFont, storeFontVariableClasses } from '@/lib/fonts';
 import { TGBackButtonManager } from '@/components/TGMiniAppProvider';
 import { getRequestMarketplaceContext } from '@/lib/ssrMarketplace';
 import {
+  buildSelfCanonical,
   getCanonicalSiteUrl,
   getSiteUrl,
   isNamedStorefrontRequest,
@@ -156,11 +157,8 @@ export async function generateMetadata(): Promise<Metadata> {
    * Query strings are dropped on purpose: `/search?q=…&sortBy=…` permutations
    * all point at `/search`, which is the signal we want for filters and sorts.
    */
-  const selfCanonical = requestUrl
-    ? `${canonicalSiteUrl}${requestUrl.pathname === '/' ? '/' : requestUrl.pathname.replace(/\/+$/, '')}`
-    : undefined;
-  const alternates = selfCanonical
-    ? { canonical: selfCanonical }
+  const alternates = requestUrl
+    ? { canonical: buildSelfCanonical(canonicalSiteUrl, requestUrl.pathname) }
     : undefined;
 
   if (!marketplaceConfig) {
