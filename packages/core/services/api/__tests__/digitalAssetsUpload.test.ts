@@ -21,7 +21,7 @@ class FakeXMLHttpRequest {
   responseText = '';
   responseType = '';
   timeout = 0;
-  upload = { onprogress: null as XhrHandler } as unknown as XMLHttpRequestUpload;
+  upload = { onprogress: null as XhrHandler } as unknown as XMLHttpRequestUpload; // eslint-disable-line no-undef
 
   onload: XhrHandler = null;
   onerror: XhrHandler = null;
