@@ -82,7 +82,7 @@ export const fr: PartialTranslationResource = {
     loadingInterrupted: 'Chargement interrompu',
     or: 'ou',
     slowNetworkRetry: 'La connexion est lente. Nouvelle tentative…',
-    unexpectedError: 'Une erreur s’est produite',
+    unexpectedError: "Une erreur s'est produite",
     loading: 'Chargement...',
     redirecting: 'Redirection...',
     error: 'Erreur',

@@ -9552,7 +9552,7 @@ export const pt: PartialTranslationResource = {
       redeemableYes: 'Resgate disponível',
       redeemableNo: 'Resgate indisponível',
       display: {
-        gradedCollectible: 'Graduado {{grade}}',
+        gradedCollectible: 'Classificado {{grade}}',
         serialCard: 'Nº de série {{serial}}',
         referenceCard: 'Referência {{reference}}',
         m2Wilson001: {

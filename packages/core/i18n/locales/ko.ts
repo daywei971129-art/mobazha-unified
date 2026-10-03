@@ -2830,7 +2830,7 @@ export const ko: PartialTranslationResource = {
       marketCommissionLabel: '운영자 수수료',
       marketCommissionNone: '0%',
       marketCommissionNote:
-        '이 마켓플레이스에서 발생하는 주문에 대해 운영자 수수료가 청구되며, 이는 수익금에서 차감됩니다. 표시된 요금은 게시된 요금입니다. 변경하려면 운영자가 다시 게시해야 합니다.',
+        '이 마켓플레이스에서 발생하는 주문에 대해 운영자 수수료가 청구되며, 이는 수익금에서 차감됩니다. 표시된 수수료율은 게시된 수수료율입니다. 변경하려면 운영자가 다시 게시해야 합니다.',
       backToMarketplace: '마켓플레이스로 돌아가기',
       title: '판매자 되기',
       subtitle: '이 마켓플레이스에서 상품을 등록하려면 판매자 프로필을 완성하세요',
