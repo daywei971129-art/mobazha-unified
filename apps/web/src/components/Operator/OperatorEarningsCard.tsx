@@ -98,6 +98,7 @@ export function OperatorEarningsCard({
               <span className="ml-2 text-xs text-muted-foreground">
                 {t('marketplace.operator.earningsRatePendingPublish', {
                   defaultValue: `${formatBpsPercent(commissionBps)}% after next publish`,
+                  percent: formatBpsPercent(commissionBps),
                 })}
               </span>
             ) : null}
