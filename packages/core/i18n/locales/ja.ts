@@ -2713,7 +2713,7 @@ export const ja: PartialTranslationResource = {
       'Mobazhaは分散型プラットフォームであり、購入者と販売者間の取引を管理しません。ご自身の責任でプラットフォームをご利用ください。',
     termsLiabilityDescPlatform:
       'Mobazhaは分散型プラットフォームであり、購入者と出品者間の取引を管理しません。ご利用は自己責任でお願いします。',
-    lastUpdated: 'Последнее обновление',
+    lastUpdated: '最終更新',
   },
   trust: {
     buyerProtection: 'バイヤー保護',
