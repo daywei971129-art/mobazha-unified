@@ -25,6 +25,7 @@ import { Container } from '@/components/layouts';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { FieldError } from '@/components/ui/field-error';
 import { useToast } from '@/components/ui';
 import {
   Dialog,
@@ -932,9 +933,7 @@ export default function EditListingPage() {
                           maxLength={140}
                           className={errors.title ? 'border-destructive' : ''}
                         />
-                        {errors.title && (
-                          <p className="text-destructive text-sm mt-1">{errors.title}</p>
-                        )}
+                        <FieldError message={errors.title} className="text-sm" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-muted-foreground mb-1.5">
