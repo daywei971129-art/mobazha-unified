@@ -275,7 +275,13 @@ function CreateListingContent() {
 
   // 只有点过发布、且校验没过时才展示错误汇总，避免一进页面就满屏报红
   const [validationAttempted, setValidationAttempted] = useState(false);
-  const errorFields = useMemo(() => Object.keys(errors), [errors]);
+  // Counts failed submits so that a repeat attempt re-runs the auto-scroll below.
+  const [validationAttempts, setValidationAttempts] = useState(0);
+  // A fixed field keeps its key with an `undefined` value, so filter on the value.
+  const errorFields = useMemo(
+    () => Object.keys(errors).filter(field => Boolean(errors[field])),
+    [errors]
+  );
 
   // 移动端检测
   const isMobile = useIsMobile();
@@ -314,10 +320,15 @@ function CreateListingContent() {
 
   // 滚动到指定区域
   const scrollToSection = useCallback((key: TabKey) => {
-    setActiveTab(key);
+    // RWA listings do not render every section (e.g. 'other'): fall back to the first
+    // section, and to the top of the page (where the error summary sits) if that is absent too.
     const ref = sectionRefs.current[key];
-    if (ref) {
-      ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setActiveTab(ref ? key : 'general');
+    const target = ref ?? sectionRefs.current.general;
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, []);
 
@@ -327,7 +338,7 @@ function CreateListingContent() {
     if (!validationAttempted || !firstErrorField) return;
     const section = ERROR_FIELD_SECTIONS[firstErrorField];
     if (section) scrollToSection(section);
-  }, [validationAttempted, firstErrorField, scrollToSection]);
+  }, [validationAttempted, validationAttempts, firstErrorField, scrollToSection]);
 
   const {
     pendingSync,
@@ -425,6 +436,7 @@ function CreateListingContent() {
         // 不再用右下角弹窗提示校验失败：改为在出错字段旁就地提示，
         // 并由下面的 effect 自动切换到出错页签、滚动到第一个错误字段。
         setValidationAttempted(true);
+        setValidationAttempts(count => count + 1);
         return;
       }
       setValidationAttempted(false);

@@ -246,7 +246,13 @@ export default function EditListingPage() {
 
   // 只有点过保存、且校验没过时才展示错误汇总
   const [validationAttempted, setValidationAttempted] = useState(false);
-  const errorFields = useMemo(() => Object.keys(errors), [errors]);
+  // Counts failed submits so that a repeat attempt re-runs the auto-scroll below.
+  const [validationAttempts, setValidationAttempts] = useState(0);
+  // A fixed field keeps its key with an `undefined` value, so filter on the value.
+  const errorFields = useMemo(
+    () => Object.keys(errors).filter(field => Boolean(errors[field])),
+    [errors]
+  );
 
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -288,10 +294,15 @@ export default function EditListingPage() {
 
   // 滚动到指定区域
   const scrollToSection = useCallback((key: TabKey) => {
-    setActiveTab(key);
+    // RWA listings do not render every section (e.g. 'other'): fall back to the first
+    // section, and to the top of the page (where the error summary sits) if that is absent too.
     const ref = sectionRefs.current[key];
-    if (ref) {
-      ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setActiveTab(ref ? key : 'general');
+    const target = ref ?? sectionRefs.current.general;
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, []);
 
@@ -301,7 +312,7 @@ export default function EditListingPage() {
     if (!validationAttempted || !firstErrorField) return;
     const section = ERROR_FIELD_SECTIONS[firstErrorField];
     if (section) scrollToSection(section);
-  }, [validationAttempted, firstErrorField, scrollToSection]);
+  }, [validationAttempted, validationAttempts, firstErrorField, scrollToSection]);
 
   const {
     context: supplyContext,
@@ -420,6 +431,7 @@ export default function EditListingPage() {
       if (!validate()) {
         // 改为就地提示 + 自动定位，不再用右下角弹窗
         setValidationAttempted(true);
+        setValidationAttempts(count => count + 1);
         return;
       }
       setValidationAttempted(false);
