@@ -1,7 +1,48 @@
 import { headers } from 'next/headers';
 
+export const OFFICIAL_SITE_ORIGIN = 'https://app.mobazha.org';
+
 const DEFAULT_SITE_URL: string =
-  typeof __SOVEREIGN__ !== 'undefined' && __SOVEREIGN__ ? '' : 'https://app.mobazha.org';
+  typeof __SOVEREIGN__ !== 'undefined' && __SOVEREIGN__ ? '' : OFFICIAL_SITE_ORIGIN;
+
+const OFFICIAL_SITE_HOSTNAME = new URL(OFFICIAL_SITE_ORIGIN).hostname;
+
+/**
+ * True when `url` is on the official Mobazha site. Used to publish
+ * Mobazha-identity structured data only there, not on self-hosted or branded
+ * deployments built from the same image.
+ *
+ * Only the hostname is compared: the scheme and port that reach Next depend on
+ * the proxy in front of it (a TLS-terminating proxy that forwards plain http
+ * makes `getSiteUrl()` report `http://app.mobazha.org`).
+ */
+export function isOfficialSiteUrl(url: string): boolean {
+  try {
+    return new URL(url).hostname === OFFICIAL_SITE_HOSTNAME;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The deploy-time site URL, read from configuration only — never from request
+ * headers. This is the only safe source for the base of a server-side fetch;
+ * `getSiteUrl()` can echo a caller-controlled Host header.
+ * Empty when nothing is configured (e.g. sovereign builds).
+ */
+export function getConfiguredSiteUrl(): string {
+  return process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
+}
+
+/**
+ * Absolute self-referencing canonical for a request path. `pathname` carries no
+ * query string, so `/search?q=a&sortBy=b` and `/search/` both resolve to
+ * `<site>/search`; only the root keeps its slash. A trailing slash on the site
+ * URL (e.g. in NEXT_PUBLIC_SITE_URL) is dropped so the result never has `//`.
+ */
+export function buildSelfCanonical(siteUrl: string, pathname: string): string {
+  return `${siteUrl.replace(/\/+$/, '')}${pathname.replace(/\/+$/, '') || '/'}`;
+}
 
 /**
  * Resolve the site base URL for SSR metadata (OG, JSON-LD, breadcrumb items).

@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Search — Mobazha',
+  // The root layout already applies the `%s | Mobazha` title template, so the
+  // brand must not be repeated here ("Search — Mobazha | Mobazha").
+  title: 'Search',
   description: 'Search products and stores on Mobazha decentralized marketplace.',
 };
 
