@@ -1,7 +1,22 @@
 import { headers } from 'next/headers';
 
+export const OFFICIAL_SITE_ORIGIN = 'https://app.mobazha.org';
+
 const DEFAULT_SITE_URL: string =
-  typeof __SOVEREIGN__ !== 'undefined' && __SOVEREIGN__ ? '' : 'https://app.mobazha.org';
+  typeof __SOVEREIGN__ !== 'undefined' && __SOVEREIGN__ ? '' : OFFICIAL_SITE_ORIGIN;
+
+/**
+ * True when `url` is on the official Mobazha site. Used to publish
+ * Mobazha-identity structured data only there, not on self-hosted or branded
+ * deployments built from the same image.
+ */
+export function isOfficialSiteUrl(url: string): boolean {
+  try {
+    return new URL(url).origin === OFFICIAL_SITE_ORIGIN;
+  } catch {
+    return false;
+  }
+}
 
 /**
  * The deploy-time site URL, read from configuration only — never from request

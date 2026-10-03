@@ -27,7 +27,12 @@ import { ProductModalProvider, PaymentSelectorProvider } from '@/hooks';
 import { defaultFont, storeFontVariableClasses } from '@/lib/fonts';
 import { TGBackButtonManager } from '@/components/TGMiniAppProvider';
 import { getRequestMarketplaceContext } from '@/lib/ssrMarketplace';
-import { getCanonicalSiteUrl, getSiteUrl, isNamedStorefrontRequest } from '@/lib/siteUrl';
+import {
+  getCanonicalSiteUrl,
+  getSiteUrl,
+  isNamedStorefrontRequest,
+  isOfficialSiteUrl,
+} from '@/lib/siteUrl';
 import { getRequestUrl } from '@/lib/requestUrl';
 
 /**
@@ -227,12 +232,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     getCanonicalSiteUrl(),
     isNamedStorefrontRequest(),
   ]);
-  // Named storefronts are `robots: noindex` duplicates of the main store, and
-  // store pages already publish their own Organization node — restating the
-  // site-wide identity there would only muddy the entity graph.
-  const jsonLdNodes = namedStorefront
-    ? []
-    : [buildOrganizationJsonLd(canonicalSiteUrl), buildWebsiteJsonLd(canonicalSiteUrl)];
+  // These nodes name Mobazha itself, so they belong to the official site only.
+  // The same image also serves self-hosted stores, custom domains and branded
+  // marketplace subdomains, which must not claim to be Mobazha (or inherit its
+  // sameAs links). Named storefronts are `robots: noindex` duplicates of the
+  // main store and store pages already publish their own Organization node.
+  const jsonLdNodes =
+    !namedStorefront && isOfficialSiteUrl(canonicalSiteUrl)
+      ? [buildOrganizationJsonLd(canonicalSiteUrl), buildWebsiteJsonLd(canonicalSiteUrl)]
+      : [];
 
   return (
     <html
