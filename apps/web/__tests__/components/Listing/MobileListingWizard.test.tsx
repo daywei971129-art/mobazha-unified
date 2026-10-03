@@ -56,6 +56,7 @@ vi.mock('@mobazha/core', () => ({
     return `http://localhost:4002/media/images/${ref}`;
   },
   DEFAULT_LOCAL_CURRENCY: 'USD',
+  STANDARD_PRODUCT_TYPES: ['Electronics', 'Second-hand'],
 }));
 
 vi.mock('next/link', () => ({

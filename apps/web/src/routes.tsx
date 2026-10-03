@@ -122,7 +122,10 @@ if (!__SOVEREIGN__) {
     // 市场列表和详情（公开浏览）
     {
       path: '/marketplace',
-      element: capabilityPage('marketplace.discovery', () => import('./app/marketplace/page')),
+      element: capabilityPage(
+        'marketplace.discovery',
+        () => import('./app/marketplace/MarketplacesPageClient')
+      ),
     },
     {
       path: '/marketplace/:slug',

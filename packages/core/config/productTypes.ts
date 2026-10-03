@@ -16,6 +16,8 @@ export const STANDARD_PRODUCT_TYPES = [
   'Art & Collectibles',
   'Digital Goods',
   'Services',
+  // 商品三分类（普通 / 二手 / 手作）的保留值
+  'Second-hand',
   'Handmade',
   'Vintage',
   'Other',

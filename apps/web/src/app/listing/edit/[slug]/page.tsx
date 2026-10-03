@@ -50,6 +50,7 @@ import {
   resolveProductSupplyMode,
   useFeature,
   buildProductHref,
+  STANDARD_PRODUCT_TYPES,
 } from '@mobazha/core';
 import type {
   ContractType,
@@ -1058,10 +1059,16 @@ export default function EditListingPage() {
                   {t('listing.productTypeHelper')}
                 </p>
                 <Input
+                  list="product-type-suggestions"
                   value={formData.productType}
                   onChange={e => updateField('productType', e.target.value)}
                   placeholder={t('listing.productTypePlaceholder')}
                 />
+                <datalist id="product-type-suggestions">
+                  {STANDARD_PRODUCT_TYPES.map(productType => (
+                    <option key={productType} value={productType} />
+                  ))}
+                </datalist>
               </Card>
 
               {/* 物流选项 - 仅物理商品 */}

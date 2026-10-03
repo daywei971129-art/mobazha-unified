@@ -29,6 +29,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { FieldError } from '@/components/ui/field-error';
+import { STANDARD_PRODUCT_TYPES } from '@mobazha/core';
 import { useToast } from '@/components/ui';
 import {
   Dialog,
@@ -1051,10 +1052,16 @@ function CreateListingContent() {
                   {t('listing.productTypeHelper')}
                 </p>
                 <Input
+                  list="product-type-suggestions"
                   value={formData.productType}
                   onChange={e => updateField('productType', e.target.value)}
                   placeholder={t('listing.productTypePlaceholder')}
                 />
+                <datalist id="product-type-suggestions">
+                  {STANDARD_PRODUCT_TYPES.map(productType => (
+                    <option key={productType} value={productType} />
+                  ))}
+                </datalist>
               </Card>
 
               {/* 物流选项 - 仅物理商品 */}

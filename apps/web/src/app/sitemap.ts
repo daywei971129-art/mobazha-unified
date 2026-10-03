@@ -4,7 +4,8 @@ import '@/lib/initPublicEnv';
 import { isHostedMode } from '@mobazha/core/config/env';
 import { buildProductHref, parseCompositeListingSlug } from '@mobazha/core/utils/productUrl';
 import { fetchSearchListingCatalog, type SitemapListingItem } from '@/lib/ssrSearchCatalog';
-import { getSiteUrl, isNamedStorefrontRequest } from '@/lib/siteUrl';
+import { SSR_SEARCH_BASE } from '@/lib/ssrSearchBase';
+import { getConfiguredSiteUrl, getSiteUrl, isNamedStorefrontRequest } from '@/lib/siteUrl';
 import { SSR_API_BASE } from '@/lib/ssrApiBase';
 
 const API_BASE = SSR_API_BASE;
@@ -43,14 +44,47 @@ function mapIndexListings(listings: ListingIndexItem[]): SitemapListingItem[] {
 }
 
 async function fetchSitemapListings(): Promise<SitemapListingItem[]> {
+  /**
+   * Hosted mode publishes the network-wide catalogue from the search index.
+   * Stand-alone stores publish only their own node's listings: the network-wide
+   * catalogue must never be listed under a store's own domain.
+   *
+   * The hosted catalogue used to resolve to nothing in production, leaving only
+   * the two static routes: the info API is reached through a different entry
+   * point than the API base (`INTERNAL_INFO_API_URL` / `NEXT_PUBLIC_INFO_API_URL`),
+   * with a hard-coded `info.mobazha.org` fallback. That host is a *different*
+   * product and answers with an HTML shell, so on a deployment where the
+   * build-time variable is missing the catalogue silently came back empty. The
+   * same-origin `/info/*` prefix is what the browser already uses
+   * (`src/proxy.ts`) and it is verified to return JSON, so it is tried as a
+   * second entry point before giving up. Its base must come from configuration
+   * (`getConfiguredSiteUrl()`), never from the request: request headers are
+   * caller-controlled, and this fetch runs server-side.
+   */
   if (isHostedMode()) {
-    const searchListings = await fetchSearchListingCatalog();
-    if (searchListings.length > 0) {
-      return searchListings;
+    const configured = getConfiguredSiteUrl().replace(/\/+$/, '');
+    const searchBases = [SSR_SEARCH_BASE, ...(configured ? [`${configured}/info`] : [])];
+    const tried = new Set<string>();
+
+    for (const candidate of searchBases) {
+      const base = candidate.replace(/\/+$/, '');
+      if (tried.has(base)) continue;
+      tried.add(base);
+
+      const searchListings = await fetchSearchListingCatalog({ base });
+      if (searchListings.length > 0) {
+        return searchListings;
+      }
     }
   }
 
-  return mapIndexListings(await fetchListingIndex());
+  const indexListings = mapIndexListings(await fetchListingIndex());
+  if (indexListings.length === 0) {
+    console.warn(
+      '[sitemap] no listings resolved from the search index or the node listing index; emitting static routes only'
+    );
+  }
+  return indexListings;
 }
 
 /**
