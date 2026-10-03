@@ -4,6 +4,16 @@ const DEFAULT_SITE_URL: string =
   typeof __SOVEREIGN__ !== 'undefined' && __SOVEREIGN__ ? '' : 'https://app.mobazha.org';
 
 /**
+ * The deploy-time site URL, read from configuration only — never from request
+ * headers. This is the only safe source for the base of a server-side fetch;
+ * `getSiteUrl()` can echo a caller-controlled Host header.
+ * Empty when nothing is configured (e.g. sovereign builds).
+ */
+export function getConfiguredSiteUrl(): string {
+  return process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
+}
+
+/**
  * Resolve the site base URL for SSR metadata (OG, JSON-LD, breadcrumb items).
  *
  * Priority:
