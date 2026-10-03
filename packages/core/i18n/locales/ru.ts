@@ -3048,7 +3048,7 @@ export const ru: PartialTranslationResource = {
           lastUpdated: 'Последнее обновление',
           listingBindingsBlockedDesc: 'Прежде чем продолжить, добавьте этот элемент в объявление.',
           listingBindingsBlockedTitle: 'Ссылка на объявление недоступна',
-          showAllCases: 'Показать все {{count}}случаев',
+          showAllCases: 'Показать все ({{count}})',
           nextActionSection: 'Следующее действие',
           submitIntro: 'Отправьте карту на хранение и продажу.',
           showFewerCases: 'Показать меньше',
